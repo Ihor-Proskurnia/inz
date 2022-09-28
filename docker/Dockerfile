@@ -1,45 +1,45 @@
-FROM php:8.1-fpm-alpine
+FROM php:8.1-fpm
 
-ARG BUILD_DATE
-ARG VCS_REF
+# Install dependencies
+RUN apt-get update && apt-get install -y \
+    jpegoptim optipng pngquant gifsicle \
+    libjpeg62-turbo-dev \
+    libfreetype6-dev \
+    build-essential \
+    libfontconfig1 \
+    libxrender1 \
+    libpng-dev \
+    libzip-dev \
+    libpq-dev \
+    locales \
+    unzip \
+    zip \
+    vim \
+    git \
+    curl
 
-ENV COMPOSER_ALLOW_SUPERUSER 1
-ENV PHP_XDEBUG_DEFAULT_ENABLE ${PHP_XDEBUG_DEFAULT_ENABLE:-1}
-ENV PHP_XDEBUG_REMOTE_ENABLE ${PHP_XDEBUG_REMOTE_ENABLE:-1}
-ENV PHP_XDEBUG_REMOTE_HOST ${PHP_XDEBUG_REMOTE_HOST:-"127.0.0.1"}
-ENV PHP_XDEBUG_REMOTE_PORT ${PHP_XDEBUG_REMOTE_PORT:-9000}
-ENV PHP_XDEBUG_REMOTE_AUTO_START ${PHP_XDEBUG_REMOTE_AUTO_START:-1}
-ENV PHP_XDEBUG_REMOTE_CONNECT_BACK ${PHP_XDEBUG_REMOTE_CONNECT_BACK:-1}
-ENV PHP_XDEBUG_IDEKEY ${PHP_XDEBUG_IDEKEY:-docker}
-ENV PHP_XDEBUG_PROFILER_ENABLE ${PHP_XDEBUG_PROFILER_ENABLE:-0}
-ENV PHP_XDEBUG_PROFILER_OUTPUT_DIR ${PHP_XDEBUG_PROFILER_OUTPUT_DIR:-"/profiler"}
-ENV PHP_MEMORY_LIMIT ${PHP_MEMORY_LIMIT:-"2G"}
+# Get latest Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-USER root
+# Clear cache
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
-RUN set -ex \
-  	&& apk update \
-    && apk add --no-cache git mysql-client curl openssh-client icu libpng libjpeg-turbo postgresql-dev libffi-dev libzip-dev \
-    && apk add --no-cache imagemagick-dev imagemagick \
-    && apk add --no-cache --virtual build-dependencies icu-dev libxml2-dev freetype-dev libpng-dev libjpeg-turbo-dev g++ make autoconf \
-    && docker-php-source extract \
-    && pecl install xdebug redis imagick \
-    && docker-php-ext-enable xdebug redis imagick \
-    && docker-php-source delete \
-    && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
-    && docker-php-ext-configure gd --enable-gd --with-freetype --with-jpeg \
-    && docker-php-ext-install pdo pgsql pdo_mysql pdo_pgsql intl zip gd bcmath pcntl \
-    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
-    && cd  / && rm -fr /src \
-    && apk del build-dependencies \
-    && rm -rf /tmp/*
+# Install extensions php
+RUN docker-php-ext-install pdo pdo_mysql zip exif pcntl bcmath
 
+RUN docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/
+RUN docker-php-ext-install gd
+
+RUN pecl install xdebug-3.1.5 \
+    && docker-php-ext-enable xdebug
 
 COPY xdebug.ini /usr/local/etc/php/conf.d/xdebug-dev.ini
-COPY memory-limit-php.ini /usr/local/etc/php/conf.d/memory-limit-php.ini
+COPY memory-limit-php.ini /usr/local/etc/php/conf.d/custom-php.ini
 
-USER 1000:1000
+RUN groupadd -g 1000 www
+RUN useradd -u 1000 -ms /bin/bash -g www www
 
-WORKDIR /var/www
-CMD ["php-fpm"]
+USER www
+
+WORKDIR /var/www/html
 

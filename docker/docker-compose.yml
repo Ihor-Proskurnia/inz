@@ -30,7 +30,7 @@ services:
     platform: linux/x86_64
     image: mysql:8.0.22
     ports:
-      - "3007:3307"
+      - "3007:3306"
     volumes:
       - db-volume:/var/lib/mysql
     environment:
