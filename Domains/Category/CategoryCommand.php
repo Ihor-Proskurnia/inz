@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Category;
 
+use Category\Contracts\ICategoryCommand;
+use Category\Entities\Category;
+use Category\Filters\CategoryFilter;
 use UseCases\Contracts\Category\Entities\ICategory;
 use Illuminate\Foundation\Application;
 use UseCases\Contracts\Category\ICategoryListRequest;
@@ -17,16 +20,16 @@ class CategoryCommand implements ICategoryCommand
     /**
      * @var Category
      */
-    public Category $Category;
+    public Category $category;
 
     /**
      * @param Application $app
-     * @param Category $Category
+     * @param Category $category
      */
-    public function __construct(Application $app, Category $Category)
+    public function __construct(Application $app, Category $category)
     {
         $this->app = $app;
-        $this->Category = $Category;
+        $this->category = $category;
     }
 
 
@@ -36,7 +39,7 @@ class CategoryCommand implements ICategoryCommand
 
         $filter = $this->app->make(CategoryFilter::class, ['queryParams' => array_filter($data)]);
 
-        $query = $this->Category->filter($filter);
+        $query = $this->category->filter($filter);
 
         return $query->paginate($query_param->getPerPage());
     }

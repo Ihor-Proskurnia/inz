@@ -1,13 +1,12 @@
 <?php
 
 namespace App\Http\Resources\Category;
+
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use UseCases\Contracts\Category\Entities\ICategory;
 
 class CategoriesCollectionResource extends ResourceCollection
 {
-    public $collects = CategoryResource::class;
-
     /**
      * UsersCollectionResource constructor.
      * Enable wrap for this resource
@@ -19,6 +18,8 @@ class CategoriesCollectionResource extends ResourceCollection
         parent::__construct($resource);
         static::wrap('data');
     }
+
+    public $collects = CategoryResource::class;
 
     /**
      * Transform the resource collection into an array.
@@ -35,7 +36,7 @@ class CategoriesCollectionResource extends ResourceCollection
                 'id' => $item->getId(),
                 'name' => $item->getName(),
                 'description' => $item->getDescription(),
-                'excerpt' => $item->getExcerpt()
+                'excerpt' => $item->getExcerpt(),
             ];
         });
     }

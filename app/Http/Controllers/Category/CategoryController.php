@@ -24,11 +24,11 @@ class CategoryController extends Controller
         return $resource->response()->setStatusCode(Response::HTTP_OK);
     }
 
-    public function showCategory(Category $category, CategoryCase $use_case)
-    {
-        $response = $use_case->showCategory($category);
-        $resource = new CategoryResource($response);
-
-        return $resource->response()->setStatusCode(Response::HTTP_OK);
-    }
+//    public function showCategory(Category $category, CategoryCase $use_case)
+//    {
+//        $response = $use_case->showCategory($category);
+//        $resource = new CategoryResource($response);
+//
+//        return $resource->response()->setStatusCode(Response::HTTP_OK);
+//    }
 }

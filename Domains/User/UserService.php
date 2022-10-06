@@ -25,7 +25,6 @@ class UserService implements IUserService
         $this->app = $app;
     }
 
-
     public function showUsers(IUsersListRequest $query_param): LengthAwarePaginator
     {
         /* @var IUserCommand $show_users */

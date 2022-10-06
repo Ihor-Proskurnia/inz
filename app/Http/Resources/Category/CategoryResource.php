@@ -2,9 +2,10 @@
 
 namespace App\Http\Resources\Category;
 
+use Illuminate\Http\Resources\Json\JsonResource;
 use UseCases\Contracts\Category\Entities\ICategory;
 
-class CategoryResource
+class CategoryResource extends JsonResource
 {
     /**
      * Transform the resource into an array.

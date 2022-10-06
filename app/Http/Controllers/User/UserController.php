@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\User;
 
+use App\Http\Requests\User\UpdateUserRequest;
+use App\Http\Resources\User\UserResource;
+use App\Models\User;
 use UseCases\User\UserCase;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\UsersListRequest;
