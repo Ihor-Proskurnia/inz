@@ -14,6 +14,10 @@ class ShowUsersTest extends TestCase
     use ShowUsersTrait;
 
     /**
+     * @feature User
+     * @scenario Show user list
+     * @case Successfully show user list
+     *
      * @test
      */
     public function showUsers_success_checkResponse()

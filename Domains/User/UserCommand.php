@@ -40,6 +40,6 @@ class UserCommand implements IUserCommand
 
         $query = $this->user->filter($filter);
 
-        return $query->with('roles')->paginate($query_param->getPerPage());
+        return $query->paginate($query_param->getPerPage());
     }
 }

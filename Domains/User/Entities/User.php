@@ -2,6 +2,7 @@
 
 namespace User\Entities;
 
+use App\Models\Traits\Filterable;
 use App\Models\User as ModelUser;
 use App\Traits\DomainMorphMap;
 use Illuminate\Database\Eloquent\Builder;
@@ -13,6 +14,7 @@ use UseCases\Contracts\User\Entities\IUser;
 class User extends ModelUser implements IUser
 {
     use DomainMorphMap;
+    use Filterable;
 
     public function getId(): int
     {

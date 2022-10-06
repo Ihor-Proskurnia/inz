@@ -1,8 +1,7 @@
 <?php
 
-namespace Tests\Smoke\entry\App\Http\Controllers\User\ShowUsers;
+namespace Tests\Smoke\Controllers\User\ShowUsers;
 
-use App\Models\Other\RoleType;
 
 trait ShowUsersTrait
 {
@@ -10,10 +9,10 @@ trait ShowUsersTrait
     {
         return [
             'admin' => [
-                RoleType::ADMIN,
+//                RoleType::ADMIN,
             ],
             'moderator' => [
-                RoleType::MODERATOR,
+//                RoleType::MODERATOR,
             ],
         ];
     }
@@ -22,10 +21,10 @@ trait ShowUsersTrait
     {
         return [
             'admin' => [
-                RoleType::DRIVER,
+//                RoleType::DRIVER,
             ],
             'moderator' => [
-                RoleType::STORAGE_WORKER,
+//                RoleType::STORAGE_WORKER,
             ],
         ];
     }
