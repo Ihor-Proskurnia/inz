@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace User;
 
 use User\Contracts\IUserCommand;
-use User\Entities\User;
+use User\Entities\Category;
 use User\Filters\UserFilter;
 use Illuminate\Foundation\Application;
 use UseCases\Contracts\User\IUsersListRequest;
@@ -17,15 +17,15 @@ class UserCommand implements IUserCommand
      */
     public Application $app;
     /**
-     * @var User
+     * @var Category
      */
-    public User $user;
+    public Category $user;
 
     /**
      * @param Application $app
-     * @param User $user
+     * @param Category $user
      */
-    public function __construct(Application $app, User $user)
+    public function __construct( Application $app, Category $user)
     {
         $this->app = $app;
         $this->user = $user;

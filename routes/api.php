@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Category\CategoryController;
 use App\Http\Controllers\User\UserController;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -21,7 +22,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
+    // Users
     Route::get('users', [UserController::class, 'showUsers'])->name('users.show');
 // policy by user RoleType
 //        ->can('viewAll', User::class);
+
+    // Categories
+    Route::get('categories', [CategoryController::class, 'showCategories'])->name('categories.show');
+// policy by user RoleType
+//        ->can('viewAll', Category::class);
 });
