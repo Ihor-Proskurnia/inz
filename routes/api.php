@@ -23,11 +23,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
     // Users
-    Route::get('users', [UserController::class, 'showUsers'])->name('users.show');
-// policy by user RoleType
-//        ->can('viewAll', User::class);
-    Route::get('user/{user}', [UserController::class, 'show'])->name('user.show');
-//        ->can('view', 'user');
+    Route::get('users', [UserController::class, 'showUsers'])->name('users.show')
+        ->can('showUsers', User::class);
+    Route::get('user/{user}', [UserController::class, 'show'])->name('user.show')
+        ->can('show', 'user');
     Route::get('me', [UserController::class, 'me'])->name('user.me');
 
     // Categories
