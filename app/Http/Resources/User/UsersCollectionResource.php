@@ -35,6 +35,7 @@ class UsersCollectionResource extends ResourceCollection
         return $this->collection->map(function ($item, $key) {
             /** @var IUser $item */
             return [
+
                 'id' => $item->getId(),
                 'name' => $item->getName(),
                 'email' => $item->getEmail(),

@@ -38,4 +38,29 @@ class ShowCategoriesTest extends TestCase
         $this->assertEquals(1, $response->count());
         $this->assertInstanceOf(Category::class, $response->first());
     }
+
+    /**
+     * @feature Category
+     * @scenario Show category list
+     * @case Successfully show category list, search by name
+     *
+     * @test
+     */
+    public function showCategories_success_searchByName()
+    {
+        // GIVEN
+        $this->createUserAndBe();
+        $this->createCategory('Test');
+        $this->createCategory();
+        $request = $this->createRequest(['name' => 'Tes']);
+        $tested_use_case = $this->app->make(CategoryCase::class);
+
+        // WHEN
+        $response = $tested_use_case->showCategories($request);
+
+        // THEN
+        $this->assertInstanceOf(LengthAwarePaginator::class, $response);
+        $this->assertEquals(1, $response->count());
+        $this->assertInstanceOf(Category::class, $response->first());
+    }
 }

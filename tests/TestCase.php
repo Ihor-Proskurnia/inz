@@ -19,19 +19,21 @@ abstract class TestCase extends BaseTestCase
         return $this->user;
     }
 
-    public function createUser($email = 'email@example.com')
+    public function createUser($email = 'email@example.com', $name = 'John')
     {
         $this->user = User::factory()->state([
             'email' => $email,
-            'name' => 'John',
+            'name' => $name,
         ])->create();
 
         return $this->user;
     }
 
-    public function createCategory()
+    public function createCategory($name = "Cat 1")
     {
-        $this->category = Category::factory()->create();
+        $this->category = Category::factory()->state([
+            'name' => $name,
+        ])->create();
 
         return $this->category;
     }
