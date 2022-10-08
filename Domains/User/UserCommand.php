@@ -25,7 +25,7 @@ class UserCommand implements IUserCommand
      * @param Application $app
      * @param User $user
      */
-    public function __construct(Application $app, User $user)
+    public function __construct( Application $app, User $user)
     {
         $this->app = $app;
         $this->user = $user;

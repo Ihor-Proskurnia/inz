@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace UseCases;
 
 
+use Category\CategoryService;
 use Illuminate\Log\Logger;
 use Illuminate\Support\Arr;
 use Illuminate\Foundation\Application;
+use UseCases\Contracts\Category\ICategoryService;
 use UseCases\Contracts\User\IUserService;
 use User\UserService;
 
@@ -24,6 +26,7 @@ class DomainServiceFactory
 
     protected $bindings = [
         IUserService::class => UserService::class,
+        ICategoryService::class => CategoryService::class,
     ];
 
     /**
