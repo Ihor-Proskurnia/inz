@@ -1,13 +1,11 @@
 <?php
 
-declare(strict_types=1);
+namespace App\Http\Resources\Category;
 
-namespace App\Http\Resources\User;
-
-use UseCases\Contracts\User\Entities\IUser;
 use Illuminate\Http\Resources\Json\ResourceCollection;
+use UseCases\Contracts\Category\Entities\ICategory;
 
-class UsersCollectionResource extends ResourceCollection
+class CategoriesCollectionResource extends ResourceCollection
 {
     /**
      * UsersCollectionResource constructor.
@@ -21,7 +19,7 @@ class UsersCollectionResource extends ResourceCollection
         static::wrap('data');
     }
 
-    public $collects = UserResource::class;
+    public $collects = CategoryResource::class;
 
     /**
      * Transform the resource collection into an array.
@@ -33,12 +31,12 @@ class UsersCollectionResource extends ResourceCollection
     public function toArray($request)
     {
         return $this->collection->map(function ($item, $key) {
-            /** @var IUser $item */
+            /** @var ICategory $item */
             return [
-
                 'id' => $item->getId(),
                 'name' => $item->getName(),
-                'email' => $item->getEmail(),
+                'description' => $item->getDescription(),
+                'excerpt' => $item->getExcerpt(),
             ];
         });
     }
