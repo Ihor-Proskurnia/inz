@@ -14,7 +14,6 @@ use UseCases\Contracts\User\Entities\IUser;
 class User extends ModelUser implements IUser
 {
     use DomainMorphMap;
-    use Filterable;
 
     public function getId(): int
     {

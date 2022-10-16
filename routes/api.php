@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Category\CategoryController;
 use App\Http\Controllers\User\UserController;
+use App\Models\Order;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -33,4 +34,18 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::get('categories', [CategoryController::class, 'showCategories'])->name('categories.show');
 // policy by user RoleType
 //        ->can('viewAll', Category::class);
+
+    // Orders
+//    Route::get('orders/category/{category_id}', [OrderController::class, 'showByCategory'])
+//        ->name('orders.show.category');
+//    Route::get('orders/trainer/{trainer_id}', [OrderController::class, 'showByTrainer'])
+//        ->name('orders.show.trainer')
+//        ->can('showByTrainer', Order::class);
+
+    // /Orders By Category/
+        // /Add order for trainer/
+
+    // Records
+
+
 });

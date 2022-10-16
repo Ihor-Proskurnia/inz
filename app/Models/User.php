@@ -3,7 +3,10 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Traits\Filterable;
+use App\Models\Traits\HasCustomApiTokens;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -16,7 +19,9 @@ use Silber\Bouncer\Database\HasRolesAndAbilities;
  */
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, HasRolesAndAbilities;
+    use HasFactory, Notifiable, HasRolesAndAbilities, Filterable, HasCustomApiTokens;
+
+    public const ORDER = Order::class;
 
     /**
      * The attributes that are mass assignable.
@@ -48,4 +53,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Orders that belongs to the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function orders(): HasMany
+    {
+        return $this->hasMany(static::ORDER);
+    }
 }

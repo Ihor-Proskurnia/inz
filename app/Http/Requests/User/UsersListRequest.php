@@ -19,10 +19,11 @@ class UsersListRequest extends FormRequest implements IUsersListRequest
         return true;
     }
 
+    // adding default value
     public function validationData()
     {
         // adding default value
-        if (is_null($this->get('name_sort'))) {
+        if (is_null($this->get('name_sort')) && is_null($this->get('name_sort'))) {
             $this->query->add(['id' => 'ASC']);
         }
 
@@ -43,6 +44,8 @@ class UsersListRequest extends FormRequest implements IUsersListRequest
                 ['string', 'in:ASC,DESC'],
             'surname_sort' =>
                 ['string', 'in:ASC,DESC'],
+            'deleted_search' =>
+                ['boolean'],
             'per_page' => 'numeric|gt:0',
             'page' => 'numeric|gt:0',
         ];
