@@ -1,0 +1,40 @@
+version: '3.4'
+services:
+
+    # Application
+    app:
+        build:
+            context: .
+            dockerfile: ./docker/app.dockerfile
+        working_dir: /var/www
+        volumes:
+            - ./:/var/www
+        depends_on:
+            - "database"
+    # Web Server
+    web:
+        build:
+            context: .
+            dockerfile: ./docker/web.dockerfile
+        working_dir: /var/www
+        volumes:
+            - ./:/var/www
+        depends_on:
+            - "app"
+        ports:
+            - 80:80
+    # Database
+    database:
+        image: mysql:8.0
+        volumes:
+            - dbdata:/var/lib/mysql
+        environment:
+            MYSQL_DATABASE: ${DB_DATABASE}
+            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+            MYSQL_PASSWORD: ${DB_PASSWORD}
+            MYSQL_USER: ${DB_USERNAME}
+        ports:
+            - "33061:3306"
+
+volumes:
+    dbdata:
