@@ -21,7 +21,7 @@ class CategoryCase
         $this->domain_service_factory = $domain_service_factory;
     }
 
-    public function showCategories( ICategoryListRequest $request): LengthAwarePaginator
+    public function showCategories(ICategoryListRequest $request): LengthAwarePaginator
     {
         /** @var ICategoryService $Category_service */
         $category_service = $this->domain_service_factory->create(ICategoryService::class);

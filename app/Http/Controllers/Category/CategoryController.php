@@ -11,9 +11,6 @@ use UseCases\Category\CategoryCase;
 use App\Http\Controllers\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
-/**
- * @see UserControllerOA
- */
 class CategoryController extends Controller
 {
     public function showCategories(CategoriesListRequest $request, CategoryCase $use_case)

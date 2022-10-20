@@ -28,9 +28,9 @@ class CategoryService implements ICategoryService
 
     public function showCategories( ICategoryListRequest $query_param): LengthAwarePaginator
     {
-        /* @var ICategoryCommand $show_users */
-        $show_users = $this->app->make(CategoryCommand::class);
+        /* @var ICategoryCommand $show_categories */
+        $show_categories = $this->app->make(CategoryCommand::class);
 
-        return $show_users->showCategories($query_param);
+        return $show_categories->showCategories($query_param);
     }
 }

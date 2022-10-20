@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Category\CategoryController;
+use App\Http\Controllers\Order\OrderController;
 use App\Http\Controllers\User\UserController;
 use App\Models\Order;
 use App\Models\User;
@@ -22,7 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['middleware' => 'auth:sanctum'], function () {
+//Route::group(['middleware' => 'auth:sanctum'], function () {
     // Users
     Route::get('users', [UserController::class, 'showUsers'])->name('users.show')
         ->can('showUsers', User::class);
@@ -36,16 +37,13 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 //        ->can('viewAll', Category::class);
 
     // Orders
-//    Route::get('orders/category/{category_id}', [OrderController::class, 'showByCategory'])
-//        ->name('orders.show.category');
-//    Route::get('orders/trainer/{trainer_id}', [OrderController::class, 'showByTrainer'])
-//        ->name('orders.show.trainer')
-//        ->can('showByTrainer', Order::class);
-
-    // /Orders By Category/
-        // /Add order for trainer/
+    Route::get('orders/category/{category_id}', [OrderController::class, 'showByCategory'])
+        ->name('orders.show.category');
+    Route::get('orders/trainer/{trainer_id}', [OrderController::class, 'showByTrainer'])
+        ->name('orders.show.trainer')
+        ->can('showByTrainer', Order::class);
 
     // Records
 
 
-});
+//});

@@ -12,11 +12,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property-read int id
  * @property int category_id
  * @property int user_id
- * @property Carbon date
- * @property Carbon from_time
- * @property Carbon to_time
+ * @property string date
+ * @property string from_time
+ * @property string to_time
  * @property string name
  * @property string description
+ *
+ * @property Category category
+ * @property User trainer
  */
 class Order extends Model
 {

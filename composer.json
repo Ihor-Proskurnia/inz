@@ -29,8 +29,9 @@
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/",
             "User\\": "Domains/User/",
-            "Category\\": "Domains/Category/",
             "Auth\\": "Domains/Auth/",
+            "Category\\": "Domains/Category/",
+            "Order\\": "Domains/Order/",
             "UseCases\\": "UseCases/"
         }
     },
