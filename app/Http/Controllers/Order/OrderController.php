@@ -14,7 +14,7 @@ use UseCases\Order\OrderCase;
 
 class OrderController extends Controller
 {
-    public function showByCategory(Category $category, OrderListRequest $request, OrderCase $use_case)
+    public function showByCategory(int $category, OrderListRequest $request, OrderCase $use_case)
     {
         $response = $use_case->showByCategory($category, $request);
         $resource = new OrdersCollectionResource($response);
@@ -22,7 +22,7 @@ class OrderController extends Controller
         return $resource->response()->setStatusCode(Response::HTTP_OK);
     }
 
-    public function showByTrainer(User $trainer, OrderListRequest $request, OrderCase $use_case)
+    public function showByTrainer(int $trainer, OrderListRequest $request, OrderCase $use_case)
     {
         $response = $use_case->showByTrainer($trainer, $request);
         $resource = new OrdersCollectionResource($response);

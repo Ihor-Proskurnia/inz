@@ -23,7 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-//Route::group(['middleware' => 'auth:sanctum'], function () {
+Route::group(['middleware' => 'auth:sanctum'], function () {
     // Users
     Route::get('users', [UserController::class, 'showUsers'])->name('users.show')
         ->can('showUsers', User::class);
@@ -40,10 +40,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     Route::get('orders/category/{category_id}', [OrderController::class, 'showByCategory'])
         ->name('orders.show.category');
     Route::get('orders/trainer/{trainer_id}', [OrderController::class, 'showByTrainer'])
-        ->name('orders.show.trainer')
-        ->can('showByTrainer', Order::class);
+        ->name('orders.show.trainer');
+//        ->can('showByTrainer', Order::class);
 
     // Records
 
 
-//});
+});

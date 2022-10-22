@@ -23,22 +23,18 @@ class OrderCase
         $this->domain_service_factory = $domain_service_factory;
     }
 
-    public function showByCategory(Category $category, IOrderListRequest $request): LengthAwarePaginator
+    public function showByCategory(int $category_id, IOrderListRequest $request): LengthAwarePaginator
     {
         /** @var IOrderService $order_service */
         $order_service = $this->domain_service_factory->create(IOrderService::class);
-
-        $category_id = $category->id;
 
         return $order_service->showByCategory($category_id, $request);
     }
 
-    public function showByTrainer(User $trainer, IOrderListRequest $request): LengthAwarePaginator
+    public function showByTrainer(int $trainer_id, IOrderListRequest $request): LengthAwarePaginator
     {
         /** @var IOrderService $order_service */
         $order_service = $this->domain_service_factory->create(IOrderService::class);
-
-        $trainer_id = $trainer->id;
 
         return $order_service->showByTrainer($trainer_id, $request);
     }

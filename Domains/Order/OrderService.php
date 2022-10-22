@@ -4,10 +4,7 @@ declare(strict_types=1);
 
 namespace Order;
 
-use Category\Contracts\ICategoryCommand;
 use Order\Contracts\IOrderCommand;
-use UseCases\Contracts\Category\ICategoryListRequest;
-use UseCases\Contracts\Category\ICategoryService;
 use Illuminate\Foundation\Application;
 use Illuminate\Pagination\LengthAwarePaginator;
 use UseCases\Contracts\Order\IOrderListRequest;
