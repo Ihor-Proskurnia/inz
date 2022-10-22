@@ -6,9 +6,7 @@ namespace App\Http\Controllers\Order;
 
 use App\Http\Requests\Order\OrderListRequest;
 use App\Http\Resources\Order\OrdersCollectionResource;
-use App\Models\Category;
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use Symfony\Component\HttpFoundation\Response;
 use UseCases\Order\OrderCase;
 

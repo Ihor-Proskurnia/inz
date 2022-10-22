@@ -5,9 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Requests\Order;
 
 use Illuminate\Foundation\Http\FormRequest;
-use UseCases\Contracts\Category\ICategoryListRequest;
 use UseCases\Contracts\Order\IOrderListRequest;
-use UseCases\Contracts\User\IUsersListRequest;
 
 class OrderListRequest extends FormRequest implements IOrderListRequest
 {
