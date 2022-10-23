@@ -16,16 +16,16 @@ class ShowUsersTest extends TestCase
      * @scenario Show user list
      * @case Successfully show user list
      *
-//     * @dataProvider goodRoles
-//     *
-//     * @param array $roles
+     * @dataProvider goodRoles
+     *
+     * @param array $roles
      *
      * @test
      */
-    public function showUsers_goodRoles_responseOk()
+    public function showUsers_goodRoles_responseOk($roles)
     {
         // GIVEN
-        $this->createUserAndBe('email@email.com');
+        $this->createUserAndBe('email@email.com', $roles);
 
         // WHEN
         $response = $this->json('get', route('users.show'));
@@ -39,16 +39,16 @@ class ShowUsersTest extends TestCase
      * @scenario Show user list
      * @case Successfully show user list
      *
-//     * @dataProvider goodRoles
-//     *
-//     * @param array $roles
+     * @dataProvider goodRoles
+     *
+     * @param array $roles
      *
      * @test
      */
-    public function showUsers_goodRoles_checkJson()
+    public function showUsers_goodRoles_checkJson($roles)
     {
         // GIVEN
-        $this->createUserAndBe('email@email.com');
+        $this->createUserAndBe('email@email.com', $roles);
 
         // WHEN
         $response = $this->json('get', route('users.show'));
@@ -93,15 +93,14 @@ class ShowUsersTest extends TestCase
      * @feature User
      * @scenario Show user list
      * @case Failed show user, no access
-//     * @dataProvider wrongRoles
-//     *
-//     * @param array $roles
+     * @dataProvider wrongRoles
+     *
+     * @param array $roles
      *
      * @test
      */
-    public function showUsers_noAccess_responseForbidden()
+    public function showUsers_noAccess_responseForbidden($roles)
     {
-        $this->markTestSkipped('For check user credentials');
         // GIVEN
         $this->createUserAndBe('email@email.com', $roles);
 

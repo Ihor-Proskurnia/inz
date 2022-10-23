@@ -2,6 +2,7 @@
 
 namespace Tests\Integration\User\ShowUserList;
 
+use App\Models\Other\RoleType;
 use Tests\TestCase;
 use App\Models\User;
 use UseCases\User\UserCase;
@@ -48,7 +49,7 @@ class ShowUsersTest extends TestCase
     {
         // GIVEN
         $this->createUserAndBe();
-        $this->createUser('email1@example.com', 'Test');
+        $this->createUser('email1@example.com', RoleType::SPORTSMAN, 'Test');
 
         $request = $this->createRequest(['name' => 'Tes']);
 

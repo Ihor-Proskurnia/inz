@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace UseCases\User;
 
 use UseCases\Contracts\User\Entities\IUser;
-use UseCases\Contracts\User\IUserService;
+use UseCases\Contracts\User\IUser as IUserService;
 use UseCases\DomainServiceFactory;
 use UseCases\Contracts\User\IUsersListRequest;
 use Illuminate\Pagination\LengthAwarePaginator;

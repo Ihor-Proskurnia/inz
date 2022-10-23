@@ -5,12 +5,16 @@ declare(strict_types=1);
 namespace UseCases;
 
 
+use Auth\AuthService;
 use Category\CategoryService;
 use Illuminate\Log\Logger;
 use Illuminate\Support\Arr;
 use Illuminate\Foundation\Application;
+use Order\OrderService;
+use UseCases\Contracts\Auth\IAuth;
 use UseCases\Contracts\Category\ICategoryService;
-use UseCases\Contracts\User\IUserService;
+use UseCases\Contracts\Order\IOrderService;
+use UseCases\Contracts\User\IUser;
 use User\UserService;
 
 class DomainServiceFactory
@@ -25,8 +29,10 @@ class DomainServiceFactory
     protected $app;
 
     protected $bindings = [
-        IUserService::class => UserService::class,
+        IUser::class => UserService::class,
+        IAuth::class => AuthService::class,
         ICategoryService::class => CategoryService::class,
+        IOrderService::class => OrderService::class,
     ];
 
     /**

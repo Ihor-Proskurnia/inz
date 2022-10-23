@@ -3,16 +3,15 @@
 namespace Tests\Smoke\Controllers\User\ShowUsers;
 
 
+use App\Models\Other\RoleType;
+
 trait ShowUsersTrait
 {
     public function goodRoles()
     {
         return [
             'admin' => [
-//                RoleType::ADMIN,
-            ],
-            'moderator' => [
-//                RoleType::MODERATOR,
+                RoleType::ADMIN,
             ],
         ];
     }
@@ -20,11 +19,11 @@ trait ShowUsersTrait
     public function wrongRoles()
     {
         return [
-            'admin' => [
-//                RoleType::DRIVER,
+            'trainer' => [
+                RoleType::TRAINER,
             ],
-            'moderator' => [
-//                RoleType::STORAGE_WORKER,
+            'sportsman' => [
+                RoleType::SPORTSMAN,
             ],
         ];
     }

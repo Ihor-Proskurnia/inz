@@ -10,7 +10,6 @@ use UseCases\Contracts\Category\Entities\ICategory;
 class Category extends BaseModel implements ICategory
 {
     use DomainMorphMap;
-    use Filterable;
 
     public function getId(): int
     {

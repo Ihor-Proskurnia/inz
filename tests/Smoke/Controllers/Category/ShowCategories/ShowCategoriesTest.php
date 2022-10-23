@@ -16,10 +16,6 @@ class ShowCategoriesTest extends TestCase
      * @scenario Show category list
      * @case Successfully show category list
      *
-//     * @dataProvider goodRoles
-//     *
-//     * @param array $roles
-     *
      * @test
      */
     public function showCategories_goodRoles_responseOk()
@@ -39,10 +35,6 @@ class ShowCategoriesTest extends TestCase
      * @feature Category
      * @scenario Show category list
      * @case Successfully show category list
-     *
-//     * @dataProvider goodRoles
-//     *
-//     * @param array $roles
      *
      * @test
      */
@@ -85,32 +77,6 @@ class ShowCategoriesTest extends TestCase
 
         // THEN
         $response->assertUnauthorized();
-        $this->assertJson($response->baseResponse->getContent());
-        $response->assertJsonStructure([
-            'message',
-        ]);
-    }
-
-    /**
-     * @feature Category
-     * @scenario Show category list
-     * @case Failed show categories, no access
-//     * @dataProvider wrongRoles
-//     *
-//     * @param array $roles
-     *
-     * @test
-     */
-    public function showCategories_noAccess_responseForbidden()
-    {
-        $this->markTestSkipped('For check user credentials');
-        // GIVEN
-        $this->createUserAndBe('email@email.com', $roles);
-
-        // WHEN
-        $response = $this->json('get', route('categories.show'));
-        // THEN
-        $this->assertEquals(403, $response->getStatusCode());
         $this->assertJson($response->baseResponse->getContent());
         $response->assertJsonStructure([
             'message',
