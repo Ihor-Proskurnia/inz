@@ -19,16 +19,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 Route::group(['middleware' => 'auth:sanctum'], function () {
     // Users
-    Route::get('users', [UserController::class, 'showUsers'])->name('users.show')
-        ->can('showUsers', User::class);
-    Route::get('user/{user}', [UserController::class, 'show'])->name('user.show')
-        ->can('show', 'user');
+    Route::get('users', [UserController::class, 'showUsers'])->name('users.show');
+//        ->can('showUsers', User::class);
+    Route::get('user/{user}', [UserController::class, 'show'])->name('user.show');
+//        ->can('show', 'user');
     Route::get('me', [UserController::class, 'me'])->name('user.me');
 
     // Categories
@@ -42,8 +38,13 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::get('orders/trainer/{trainer_id}', [OrderController::class, 'showByTrainer'])
         ->name('orders.show.trainer');
 //        ->can('showByTrainer', Order::class);
+    Route::post('orders/{trainer_id}', [OrderController::class, 'addOrder'])
+        ->name('orders.add');
+//        ->can('addOrder', Order::class);
 
     // Records
+    Route::post('orders/{trainer_id}', [OrderController::class, 'addOrder'])
+        ->name('orders.add');
 
 
 });

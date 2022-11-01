@@ -25,9 +25,9 @@ class DatabaseSeeder extends Seeder
         $sportsman = User::factory()->create();
         $sportsman->assign(RoleType::SPORTSMAN);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+//         \App\Models\User::factory()->create([
+//             'name' => 'Test User',
+//             'email' => 'test@example.com',
+//         ]);
     }
 }

@@ -89,28 +89,28 @@ class ShowUsersTest extends TestCase
         ]);
     }
 
-    /**
-     * @feature User
-     * @scenario Show user list
-     * @case Failed show user, no access
-     * @dataProvider wrongRoles
-     *
-     * @param array $roles
-     *
-     * @test
-     */
-    public function showUsers_noAccess_responseForbidden($roles)
-    {
-        // GIVEN
-        $this->createUserAndBe('email@email.com', $roles);
-
-        // WHEN
-        $response = $this->json('get', route('users.show'));
-        // THEN
-        $this->assertEquals(403, $response->getStatusCode());
-        $this->assertJson($response->baseResponse->getContent());
-        $response->assertJsonStructure([
-            'message',
-        ]);
-    }
+//    /**
+//     * @feature User
+//     * @scenario Show user list
+//     * @case Failed show user, no access
+//     * @dataProvider wrongRoles
+//     *
+//     * @param array $roles
+//     *
+//     * @test
+//     */
+//    public function showUsers_noAccess_responseForbidden($roles)
+//    {
+//        // GIVEN
+//        $this->createUserAndBe('email@email.com', $roles);
+//
+//        // WHEN
+//        $response = $this->json('get', route('users.show'));
+//        // THEN
+//        $this->assertEquals(403, $response->getStatusCode());
+//        $this->assertJson($response->baseResponse->getContent());
+//        $response->assertJsonStructure([
+//            'message',
+//        ]);
+//    }
 }

@@ -10,9 +10,11 @@ use Category\CategoryService;
 use Illuminate\Log\Logger;
 use Illuminate\Support\Arr;
 use Illuminate\Foundation\Application;
+use Order\OrderCommand;
 use Order\OrderService;
 use UseCases\Contracts\Auth\IAuth;
 use UseCases\Contracts\Category\ICategoryService;
+use UseCases\Contracts\Order\IOrderCommand;
 use UseCases\Contracts\Order\IOrderService;
 use UseCases\Contracts\User\IUser;
 use User\UserService;
@@ -33,6 +35,7 @@ class DomainServiceFactory
         IAuth::class => AuthService::class,
         ICategoryService::class => CategoryService::class,
         IOrderService::class => OrderService::class,
+        IOrderCommand::class => OrderCommand::class,
     ];
 
     /**
