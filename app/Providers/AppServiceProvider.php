@@ -2,7 +2,13 @@
 
 namespace App\Providers;
 
+use App\Models\Category;
+use App\Models\User;
+use App\Models\Order;
+use Laravel\Sanctum\PersonalAccessToken;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Database\Eloquent\Relations\Relation;
+use Laravel\Sanctum\Sanctum;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +19,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->register(\L5Swagger\L5SwaggerServiceProvider::class);
+
+        Sanctum::usePersonalAccessTokenModel(PersonalAccessToken::class);
     }
 
     /**
@@ -23,6 +31,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Relation::morphMap([
+            'Order' => Order::class,
+            'User' => User::class,
+            'Category' => Category::class,
+        ]);
     }
 }
