@@ -16,4 +16,7 @@ class BadMessages
     // Auth
     public const INVALID_USER_CREDENTIALS = 'User credentials invalid.';
     public const PASSWORD_USER_NOT_CHANGED = 'Password not changed.';
+
+    // Order
+    public const ERROR_CREATE_ORDER = "Order was not created";
 }

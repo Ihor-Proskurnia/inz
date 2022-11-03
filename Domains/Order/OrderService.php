@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Order;
 
-use Order\Contracts\IOrderCommand;
+use Order\Contracts\IOrderQuery;
 use Illuminate\Foundation\Application;
 use Illuminate\Pagination\LengthAwarePaginator;
 use UseCases\Contracts\Order\IOrderListRequest;
@@ -28,16 +28,16 @@ class OrderService implements IOrderService
 
     public function showByCategory(int $category_id, IOrderListRequest $query_param): LengthAwarePaginator
     {
-        /* @var IOrderCommand $show_orders */
-        $show_orders = $this->app->make(OrderCommand::class);
+        /* @var IOrderQuery $show_orders */
+        $show_orders = $this->app->make(OrderQuery::class);
 
         return $show_orders->showByCategory($category_id, $query_param);
     }
 
     public function showByTrainer(int $trainer_id, IOrderListRequest $query_param): LengthAwarePaginator
     {
-        /* @var IOrderCommand $show_orders */
-        $show_orders = $this->app->make(OrderCommand::class);
+        /* @var IOrderQuery $show_orders */
+        $show_orders = $this->app->make(OrderQuery::class);
 
         return $show_orders->showByTrainer($trainer_id, $query_param);
     }

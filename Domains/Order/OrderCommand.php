@@ -1,57 +1,35 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Order;
 
-use Category\Entities\Category;
-use Order\Contracts\IOrderCommand;
-use Illuminate\Foundation\Application;
+
 use Order\Entities\Order;
-use Order\Filters\OrderFilter;
-use UseCases\Contracts\Order\IOrderListRequest;
+use UseCases\Contracts\Order\Entities\IOrder;
+use UseCases\Contracts\Order\ICreateOrderRequest;
+use UseCases\Contracts\Order\IOrderCommand;
 
 class OrderCommand implements IOrderCommand
 {
-    /**
-     * @var Application
-     */
-    public Application $app;
-    /**
-     * @var Order
-     */
-    public Order $order;
+    private Order $order;
 
-    /**
-     * @param Application $app
-     * @param Category $order
-     */
-    public function __construct(Application $app, Order $order)
+    public function __construct(Order $order)
     {
-        $this->app = $app;
         $this->order = $order;
     }
 
-
-    public function showByCategory(int $category_id, IOrderListRequest $query_param)
+    public function createOrder(int $trainer_id, ICreateOrderRequest $data_provider): IOrder
     {
-        $data = $query_param->validated();
+        /** @var Order $order */
+        $order = $this->order->newQuery()->create([
+            'category_id' => $data_provider->getCategoryId(),
+            'user_id' => $trainer_id,
+            'date' => $data_provider->getDate(),
+            'from_time' => $data_provider->getFromTime(),
+            'to_time' => $data_provider->getToTime(),
+            'name' => $data_provider->getName(),
+            'description' => $data_provider->getDescription(),
+        ]);
 
-        $filter = $this->app->make(OrderFilter::class, ['queryParams' => array_filter($data)]);
-
-        $query = $this->order->where('category_id', $category_id)->filter($filter);
-
-        return $query->paginate($query_param->getPerPage());
-    }
-
-    public function showByTrainer(int $trainer_id, IOrderListRequest $query_param)
-    {
-        $data = $query_param->validated();
-
-        $filter = $this->app->make(OrderFilter::class, ['queryParams' => array_filter($data)]);
-
-        $query = $this->order->where('user_id', $trainer_id)->filter($filter);
-
-        return $query->paginate($query_param->getPerPage());
+        return $order;
     }
 }
