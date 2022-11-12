@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace UseCases\User;
 
+use App\Models\User;
+use UseCases\Contracts\Requests\User\IUpdateUserRequest;
 use UseCases\Contracts\User\Entities\IUser;
 use UseCases\Contracts\User\IUser as IUserService;
 use UseCases\DomainServiceFactory;
@@ -36,5 +38,13 @@ class UserCase
         $user_service = $this->domain_service_factory->create(IUserService::class);
 
         return $user_service->showUser($user_id);
+    }
+
+    public function update(IUpdateUserRequest $data_provider, int $user_id)
+    {
+        /** @var IUserService $user_service */
+        $user_service = $this->domain_service_factory->create(IUserService::class);
+
+        return $user_service->update($data_provider, $user_id);
     }
 }

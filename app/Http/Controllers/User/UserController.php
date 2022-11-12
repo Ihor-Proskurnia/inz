@@ -32,30 +32,15 @@ class UserController extends Controller
         return $resource->response()->setStatusCode(Response::HTTP_OK);
     }
 
-//    public function update(User $user, UpdateUserRequest $request, UserCase $use_case)
-//    {
-//        $response = $use_case->update($request, $user);
-//        $resource = new UserResource($response);
-//
-//        return $resource->response()->setStatusCode(Response::HTTP_OK);
-//    }
-//
-//    public function delete(User $user, UserCase $use_case)
-//    {
-//        $auth_user = auth()->user();
-//
-//        if ($auth_user->id === $user->id) {
-//            return response(
-//                ['message' => trans(ResponseMessages::REMOVE_YOURSELF)],
-//                Response::HTTP_BAD_REQUEST
-//            );
-//        }
-//
-//        $response = $use_case->delete($user);
-//
-//        return response(['message' => trans($response->getMessage())], Response::HTTP_OK);
-//    }
-//
+    public function update(UpdateUserRequest $request, UserCase $use_case)
+    {
+        $user_id = auth()->id();
+        $response = $use_case->update($request, $user_id);
+        $resource = new UserResource($response);
+
+        return $resource->response()->setStatusCode(Response::HTTP_OK);
+    }
+
     public function me(UserCase $use_case)
     {
         $user_id = auth()->id();

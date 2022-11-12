@@ -51,7 +51,7 @@ class Register extends FormRequest implements IRegisterUser
                     ->numbers(),
             ],
             'roles' => ['required', 'array', 'min:1'],
-            'roles.*' => 'required|in:ADMIN,MODERATOR,STORAGE_WORKER,DRIVER',
+            'roles.*' => 'required|in:ADMIN,TRAINER,SPORTSMAN',
         ];
     }
 
