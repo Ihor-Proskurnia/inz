@@ -6,10 +6,15 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "darkaonline/l5-swagger": "^8.4",
+        "fomvasss/laravel-filterable": "^1.4",
+        "fruitcake/laravel-cors": "^3.0",
         "guzzlehttp/guzzle": "^7.2",
+        "jenssegers/agent": "^2.6",
         "laravel/framework": "^9.19",
-        "laravel/sanctum": "^3.0",
-        "laravel/tinker": "^2.7"
+        "laravel/sanctum": "^2.15",
+        "laravel/tinker": "^2.7",
+        "silber/bouncer": "^1.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -24,7 +29,12 @@
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
+            "Database\\Seeders\\": "database/seeders/",
+            "User\\": "Domains/User/",
+            "Auth\\": "Domains/Auth/",
+            "Category\\": "Domains/Category/",
+            "Order\\": "Domains/Order/",
+            "UseCases\\": "UseCases/"
         }
     },
     "autoload-dev": {

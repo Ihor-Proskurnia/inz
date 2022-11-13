@@ -18,6 +18,12 @@ RUN apt-get update && apt-get install -y \
     git \
     curl
 
+#Install imagik JPEG modif.
+RUN apt-get update && apt-get install -y \
+    libmagickwand-dev --no-install-recommends \
+    && pecl install imagick \
+	&& docker-php-ext-enable imagick
+
 # Get latest Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
@@ -30,11 +36,11 @@ RUN docker-php-ext-install pdo pdo_mysql zip exif pcntl bcmath
 RUN docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/
 RUN docker-php-ext-install gd
 
-RUN pecl install xdebug-3.1.5 \
+RUN pecl install xdebug-3.1.2 \
     && docker-php-ext-enable xdebug
 
-COPY xdebug.ini /usr/local/etc/php/conf.d/xdebug-dev.ini
-COPY memory-limit-php.ini /usr/local/etc/php/conf.d/custom-php.ini
+COPY conf/php/xdebug.ini /usr/local/etc/php/conf.d/xdebug-dev.ini
+COPY conf/php/custom-php.ini /usr/local/etc/php/conf.d/custom-php.ini
 
 RUN groupadd -g 1000 www
 RUN useradd -u 1000 -ms /bin/bash -g www www
