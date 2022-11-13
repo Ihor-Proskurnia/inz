@@ -20,7 +20,7 @@ class RecordController extends Controller
     public function addRecord(int $order_id, RecordCase $use_case)
     {
         $user_id = auth()->id();
-        $user_id = 1;
+//        $user_id = 6;
         $response = $use_case->createRecord($order_id, $user_id);
 
         $resource = new RecordResource($response);

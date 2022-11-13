@@ -20,7 +20,7 @@ class AddRecordTest extends TestCase
      *
      * @test
      */
-    public function createOrder_responseCreated()
+    public function createRecord_responseCreated()
     {
         // GIVEN
         $this->createUserAndBe("test@mail.com",RoleType::SPORTSMAN);

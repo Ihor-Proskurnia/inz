@@ -2,6 +2,8 @@
 
 namespace UseCases\Contracts\User\Entities;
 
+use Illuminate\Support\Collection;
+
 interface IUser
 {
     public function getId(): int;
@@ -9,4 +11,6 @@ interface IUser
     public function getName(): string;
 
     public function getEmail(): string;
+
+    public function showRoles(): Collection;
 }
