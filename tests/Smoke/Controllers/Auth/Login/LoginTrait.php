@@ -12,6 +12,19 @@ trait LoginTrait
         ];
     }
 
+    public function createCredentialsRegister($email = 'email@example.com')
+    {
+        return [
+            'name' => 'Some',
+            'surname' => 'Name',
+            'email' => $email,
+            'password' => 'passworD1',
+            'password_confirmation' => 'passworD1',
+            'roles' => ['ADMIN'],
+
+        ];
+    }
+
     public function wrongCredentials()
     {
         return [

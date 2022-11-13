@@ -162,4 +162,22 @@ class LoginTest extends TestCase
             'message',
         ]);
     }
+
+    /**
+     * @feature Auth
+     * @scenario Register
+     *
+     * @test
+     */
+    public function register_success_responseCreated()
+    {
+        // GIVEN
+        $credentials = $this->createCredentialsRegister();
+
+        // WHEN
+        $response = $this->json('post', route('register'), $credentials);
+
+        // THEN
+        $this->assertEquals(201, $response->getStatusCode());
+    }
 }

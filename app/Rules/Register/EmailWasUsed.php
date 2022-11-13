@@ -28,7 +28,7 @@ class EmailWasUsed implements Rule
     {
         $email = strtolower($value);
 
-        return !User::where('email', $email)->withTrashed()->exists();
+        return !User::where('email', $email)->exists();
     }
 
     /**
