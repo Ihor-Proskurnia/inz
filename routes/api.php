@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['middleware' => 'auth:sanctum'], function () {
+//Route::group(['middleware' => 'auth:sanctum'], function () {
     // Users
     Route::get('users', [UserController::class, 'showUsers'])->name('users.show');
 //        ->can('showUsers', User::class);
@@ -51,4 +51,4 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 //        ->can('addRecord', Record::class);
 
 
-});
+//});

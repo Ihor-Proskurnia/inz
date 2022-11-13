@@ -34,6 +34,7 @@
             "Auth\\": "Domains/Auth/",
             "Category\\": "Domains/Category/",
             "Order\\": "Domains/Order/",
+            "Record\\": "Domains/Record/",
             "UseCases\\": "UseCases/"
         }
     },
