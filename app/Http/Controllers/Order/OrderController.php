@@ -18,6 +18,7 @@ class OrderController extends Controller
     public function showByCategory(int $category, OrderListRequest $request, OrderCase $use_case)
     {
         $response = $use_case->showByCategory($category, $request);
+
         $resource = new OrdersCollectionResource($response);
 
         return $resource->response()->setStatusCode(Response::HTTP_OK);
@@ -26,6 +27,7 @@ class OrderController extends Controller
     public function showByTrainer(int $trainer, OrderListRequest $request, OrderCase $use_case)
     {
         $response = $use_case->showByTrainer($trainer, $request);
+
         $resource = new OrdersCollectionResource($response);
 
         return $resource->response()->setStatusCode(Response::HTTP_OK);

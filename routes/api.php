@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Category\CategoryController;
 use App\Http\Controllers\Order\OrderController;
+use App\Http\Controllers\Order\RecordController;
 use App\Http\Controllers\User\UserController;
 use App\Models\Order;
 use App\Models\User;
@@ -19,12 +20,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::group(['middleware' => 'auth:sanctum'], function () {
+Route::group(['middleware' => 'auth:sanctum'], function () {
     // Users
     Route::get('users', [UserController::class, 'showUsers'])->name('users.show');
 //        ->can('showUsers', User::class);
     Route::get('user/{user}', [UserController::class, 'show'])->name('user.show');
 //        ->can('show', 'user');
+    Route::put('user/update', [UserController::class, 'update'])->name('user.update');
+//        ->can('update', 'user');
     Route::get('me', [UserController::class, 'me'])->name('user.me');
 
     // Categories
@@ -43,8 +46,9 @@ use Illuminate\Support\Facades\Route;
 //        ->can('addOrder', Order::class);
 
     // Records
-//    Route::post('orders/{trainer_id}', [OrderController::class, 'addOrder'])
-//        ->name('orders.add');
+    Route::post('record/{order_id}', [RecordController::class, 'addRecord'])
+        ->name('add.record');
+//        ->can('addRecord', Record::class);
 
 
-//});
+});

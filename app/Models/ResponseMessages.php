@@ -9,7 +9,7 @@ class ResponseMessages
     public const NOT_FOUND = 'Not Found';
 
     // User
-    public const EMAIL_CONFIRM = 'Account created, please verify email';
+    public const REGISTERED = 'Account created';
     public const USER_WAS_ACTIVATED = 'Your account was successfully activated';
     public const NOT_VERIFIED_USER = 'Your email address is not verified.';
     public const FORGOT = 'Check your email';

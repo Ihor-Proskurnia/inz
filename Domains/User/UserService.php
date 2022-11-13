@@ -7,10 +7,12 @@ namespace User;
 use App\Models\Other\BadMessages;
 use App\Models\User;
 use UseCases\Contracts\Requests\Auth\IRegisterUser;
+use UseCases\Contracts\Requests\User\IUpdateUserRequest;
 use UseCases\Contracts\User\IUser;
 use Illuminate\Foundation\Application;
 use User\Contracts\IRegister;
 use User\Contracts\IShowUser;
+use User\Contracts\IUpdateUser;
 use User\Contracts\IUserCommand;
 use UseCases\Contracts\User\IUsersListRequest;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -67,6 +69,14 @@ class UserService implements IUser
         $show_users = $this->app->make(ShowUser::class);
 
         return $show_users->show($user_id);
+    }
+
+    public function update(IUpdateUserRequest $data_provider, int $user_id): \UseCases\Contracts\User\Entities\IUser
+    {
+        /* @var IUpdateUser $update_users */
+        $update_users = $this->app->make(UpdateUser::class);
+
+        return $update_users->update($data_provider, $user_id);
     }
 }
 

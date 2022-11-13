@@ -16,16 +16,6 @@ use UseCases\Contracts\Requests\Auth\IRegisterUser;
 class Register extends FormRequest implements IRegisterUser
 {
     /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
-    {
-        return true;
-    }
-
-    /**
      * Get the validation rules that apply to the request.
      *
      * @return array
@@ -51,7 +41,7 @@ class Register extends FormRequest implements IRegisterUser
                     ->numbers(),
             ],
             'roles' => ['required', 'array', 'min:1'],
-            'roles.*' => 'required|in:ADMIN,MODERATOR,STORAGE_WORKER,DRIVER',
+            'roles.*' => 'required|in:ADMIN,TRAINER,SPORTSMAN',
         ];
     }
 

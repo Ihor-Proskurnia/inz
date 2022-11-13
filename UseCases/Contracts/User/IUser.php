@@ -15,4 +15,5 @@ interface IUser
     public function register(IRegisterUser $request);
     public function showUsers(IUsersListRequest $query_param): LengthAwarePaginator;
     public function showUser(int $user_id): \UseCases\Contracts\User\Entities\IUser;
+    public function update(IUpdateUserRequest $data_provider, int $user_id): \UseCases\Contracts\User\Entities\IUser;
 }
