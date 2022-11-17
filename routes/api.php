@@ -20,10 +20,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::group(['middleware' => 'auth:sanctum'], function () {
+Route::group(['middleware' => 'auth:sanctum'], function () {
     // Users
-    Route::get('users', [UserController::class, 'showUsers'])->name('users.show');
-//        ->can('showUsers', User::class);
+    Route::get('users', [UserController::class, 'showUsers'])->name('users.show')
+        ->can('showUsers', User::class);
     Route::get('user/{user}', [UserController::class, 'show'])->name('user.show');
 //        ->can('show', 'user');
     Route::put('user/update', [UserController::class, 'update'])->name('user.update');
@@ -50,5 +50,4 @@ use Illuminate\Support\Facades\Route;
         ->name('add.record');
 //        ->can('addRecord', Record::class);
 
-
-//});
+});
