@@ -62,7 +62,8 @@ class ShowOrdersTest extends TestCase
                     'description',
                     'date',
                     'from_date',
-                    'to_time'
+                    'to_time',
+                    'reserved'
                 ],
             ],
         ]);

@@ -59,4 +59,9 @@ class Order extends BaseModel implements IOrder
     {
         return $this->description;
     }
+
+    public function checkHasRecord(): bool
+    {
+        return (bool) $this->record()->exists();
+    }
 }

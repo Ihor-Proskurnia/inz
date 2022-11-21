@@ -30,4 +30,9 @@ class Category extends BaseModel implements ICategory
     {
         return $this->excerpt;
     }
+
+    public function getImg(): ?string
+    {
+        return $this->url_link;
+    }
 }
