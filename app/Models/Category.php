@@ -24,6 +24,7 @@ class Category extends Model
         'name',
         'description',
         'excerpt',
+        'url_link',
     ];
 
     /**

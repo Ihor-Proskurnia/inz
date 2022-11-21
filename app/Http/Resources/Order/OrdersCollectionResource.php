@@ -33,14 +33,16 @@ class OrdersCollectionResource extends ResourceCollection
     {
         return $this->collection->map(function ($item, $key) {
             /** @var IOrder $item */
-            return [
+            $r = [
                 'id' => $item->getId(),
                 'name' => $item->getName(),
                 'description' => $item->getDescription(),
                 'date' => $item->getDate(),
                 'from_date' => $item->getFromTime(),
                 'to_time' => $item->getToTime(),
+                'reserved' => $item->checkHasRecord()
             ];
+            return $r;
         });
     }
 }

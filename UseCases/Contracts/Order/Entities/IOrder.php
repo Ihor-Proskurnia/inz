@@ -19,4 +19,6 @@ interface IOrder
     public function getName(): string;
 
     public function getDescription(): string;
+
+    public function checkHasRecord(): bool;
 }
