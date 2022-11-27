@@ -31,6 +31,16 @@ class User extends ModelUser implements IUser
         return $this->email;
     }
 
+    public function getPhone(): string
+    {
+        return $this->phone;
+    }
+
+    public function getCity(): string
+    {
+        return $this->city;
+    }
+
     public function showRoles(): Collection
     {
         return $this->getRoles();

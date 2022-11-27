@@ -10,4 +10,5 @@ interface IOrderQuery
 {
     public function showByCategory(int $category_id, IOrderListRequest $query_param);
     public function showByTrainer(int $trainer_id, IOrderListRequest $query_param);
+    public function showAll(IOrderListRequest $query_param);
 }

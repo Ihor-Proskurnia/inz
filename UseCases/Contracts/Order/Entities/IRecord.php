@@ -9,4 +9,12 @@ interface IRecord
     public function getOrderId();
 
     public function getUserId();
+
+    public function getFromTime();
+
+    public function getToTime();
+
+    public function getName(): string;
+
+    public function getDescription(): string;
 }

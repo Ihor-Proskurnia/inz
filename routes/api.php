@@ -43,11 +43,15 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 //        ->can('showByTrainer', Order::class);
     Route::post('orders/{trainer_id}', [OrderController::class, 'addOrder'])
         ->name('orders.add');
-//        ->can('addOrder', Order::class);
+    Route::get('orders', [OrderController::class, 'getOrders'])
+        ->name('orders.all');
+//        ->can('getOrders', Order::class);
 
     // Records
     Route::post('record/{order_id}', [RecordController::class, 'addRecord'])
         ->name('add.record');
+    Route::get('records/{user_id}', [RecordController::class, 'getByUser'])
+        ->name('records.show.user');
 //        ->can('addRecord', Record::class);
 
 });
