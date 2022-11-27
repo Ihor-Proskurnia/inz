@@ -21,4 +21,6 @@ interface IOrder
     public function getDescription(): string;
 
     public function checkHasRecord(): bool;
+
+    public function getSportsman();
 }

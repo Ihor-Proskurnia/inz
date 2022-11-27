@@ -2,12 +2,12 @@
 
 namespace App\Http\Resources\Order;
 
-use App\Http\Resources\Product\DeliveryResource;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use UseCases\Contracts\Category\Entities\ICategory;
 use UseCases\Contracts\Order\Entities\IOrder;
+use UseCases\Contracts\Order\Entities\IRecord;
 
-class OrdersCollectionResource extends ResourceCollection
+class RecordsCollectionResource extends ResourceCollection
 {
     /**
      * UsersCollectionResource constructor.
@@ -21,7 +21,7 @@ class OrdersCollectionResource extends ResourceCollection
         static::wrap('data');
     }
 
-    public $collects = OrderResource::class;
+    public $collects = RecordResource::class;
 
     /**
      * Transform the resource collection into an array.
@@ -33,16 +33,12 @@ class OrdersCollectionResource extends ResourceCollection
     public function toArray($request)
     {
         return $this->collection->map(function ($item, $key) {
-            /** @var IOrder $item */
+            /** @var IRecord $item */
             return [
-                'id' => $item->getId(),
                 'name' => $item->getName(),
                 'description' => $item->getDescription(),
-                'date' => $item->getDate(),
                 'from_date' => $item->getFromTime(),
                 'to_time' => $item->getToTime(),
-                'reserved' => $item->checkHasRecord(),
-                'sportsman_id' => $item->getSportsman(),
             ];
         });
     }

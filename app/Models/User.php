@@ -16,6 +16,8 @@ use Silber\Bouncer\Database\HasRolesAndAbilities;
  * @property-read int id
  * @property String name
  * @property String email
+ * @property String phone
+ * @property String city
  */
 class User extends Authenticatable
 {
@@ -32,6 +34,8 @@ class User extends Authenticatable
         'id',
         'name',
         'email',
+        'phone',
+        'city',
         'password',
     ];
 

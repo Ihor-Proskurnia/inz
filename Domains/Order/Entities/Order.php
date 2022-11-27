@@ -5,6 +5,7 @@ namespace Order\Entities;
 use App\Models\Order as BaseModel;
 use App\Traits\DomainMorphMap;
 use UseCases\Contracts\Order\Entities\IOrder;
+use UseCases\Contracts\Order\Entities\IRecord;
 
 class Order extends BaseModel implements IOrder
 {
@@ -58,6 +59,11 @@ class Order extends BaseModel implements IOrder
     public function getDescription(): string
     {
         return $this->description;
+    }
+
+    public function getSportsman()
+    {
+        return $this->sportsman_id;
     }
 
     public function checkHasRecord(): bool

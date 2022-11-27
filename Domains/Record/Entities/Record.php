@@ -24,4 +24,24 @@ class Record extends BaseModel implements IRecord
     {
         return $this->user_id;
     }
+
+    public function getFromTime(): string
+    {
+        return $this->from_time;
+    }
+
+    public function getToTime(): string
+    {
+        return $this->to_time;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
 }
