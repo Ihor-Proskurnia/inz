@@ -12,9 +12,9 @@ interface IUser
 
     public function getEmail(): string;
 
-    public function getPhone(): string;
+    public function getPhone(): ?string;
 
-    public function getCity(): string;
+    public function getCity(): ?string;
 
     public function showRoles(): Collection;
 }
