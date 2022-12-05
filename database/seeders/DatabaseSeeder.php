@@ -97,5 +97,10 @@ class DatabaseSeeder extends Seeder
             'order_id' => $order_2->id,
             'user_id' => $sportsman_1->id
         ])->create();
+
+        $record_3 = Record::factory()->state([
+            'order_id' => $order_3->id,
+            'user_id' => $sportsman->id
+        ])->create();
     }
 }

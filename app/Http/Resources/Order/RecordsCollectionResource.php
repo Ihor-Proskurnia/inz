@@ -37,7 +37,8 @@ class RecordsCollectionResource extends ResourceCollection
             return [
                 'name' => $item->getName(),
                 'description' => $item->getDescription(),
-                'from_date' => $item->getFromTime(),
+                'date' => $item->getDate(),
+                'from_time' => $item->getFromTime(),
                 'to_time' => $item->getToTime(),
             ];
         });

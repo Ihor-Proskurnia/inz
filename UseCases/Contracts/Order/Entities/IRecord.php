@@ -10,6 +10,8 @@ interface IRecord
 
     public function getUserId();
 
+    public function getDate();
+
     public function getFromTime();
 
     public function getToTime();
