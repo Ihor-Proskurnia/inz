@@ -44,4 +44,9 @@ class Record extends BaseModel implements IRecord
     {
         return $this->description;
     }
+
+    public function getDate()
+    {
+        return $this->date;
+    }
 }
