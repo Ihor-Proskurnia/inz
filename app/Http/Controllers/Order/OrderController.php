@@ -38,7 +38,9 @@ class OrderController extends Controller
 
     public function delete(int $order_id, OrderCase $use_case)
     {
-        $response = $use_case->delete($order_id);
+        $user_id = auth()->id();
+
+        $response = $use_case->delete($order_id, $user_id);
 
         if ($response) {
             return response(['message' => ResponseMessages::SUCCESS_REMOVE_ORDER], Response::HTTP_OK);
