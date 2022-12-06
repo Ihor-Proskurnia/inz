@@ -61,7 +61,7 @@ class DatabaseSeeder extends Seeder
         $order_1 = Order::factory()->state([
             'category_id' => $cat_1->id,
             'user_id' => $trainer->id,
-            'date' => '2022-12-12',
+            'date' => '2022-12-13',
             'from_time' => '11:00',
             'to_time' => '12:00',
             'name' => 'Name 1',
@@ -81,7 +81,7 @@ class DatabaseSeeder extends Seeder
         $order_3 = Order::factory()->state([
             'category_id' => $cat_2->id,
             'user_id' => $trainer_1->id,
-            'date' => '2022-12-12',
+            'date' => '2022-12-11',
             'from_time' => '13:00',
             'to_time' => '11:00',
             'name' => 'Name 1',

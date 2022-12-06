@@ -37,6 +37,7 @@ class CategoriesCollectionResource extends ResourceCollection
                 'name' => $item->getName(),
                 'description' => $item->getDescription(),
                 'excerpt' => $item->getExcerpt(),
+                'img' => $item->getImg(),
             ];
         });
     }
