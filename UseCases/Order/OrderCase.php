@@ -51,4 +51,12 @@ class OrderCase
 
         return $order;
     }
+
+    public function showAll(IOrderListRequest $request): LengthAwarePaginator
+    {
+        /** @var IOrderService $order_service */
+        $order_service = $this->domain_service_factory->create(IOrderService::class);
+
+        return $order_service->showAll($request);
+    }
 }

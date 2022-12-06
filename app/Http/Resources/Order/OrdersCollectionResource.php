@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Order;
 
+use App\Http\Resources\Product\DeliveryResource;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use UseCases\Contracts\Category\Entities\ICategory;
 use UseCases\Contracts\Order\Entities\IOrder;
@@ -40,6 +41,8 @@ class OrdersCollectionResource extends ResourceCollection
                 'date' => $item->getDate(),
                 'from_date' => $item->getFromTime(),
                 'to_time' => $item->getToTime(),
+                'reserved' => $item->checkHasRecord(),
+                'sportsman_id' => $item->getSportsman(),
             ];
         });
     }

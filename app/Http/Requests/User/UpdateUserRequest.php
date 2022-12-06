@@ -28,7 +28,8 @@ class UpdateUserRequest extends FormRequest implements IUpdateUserRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'surname' => 'required|string|max:255',
+            'phone' => 'nullable|min:8', // +48 899 XX XXX
+            'city' => 'nullable|min:2|max:50',
         ];
     }
 
@@ -37,8 +38,13 @@ class UpdateUserRequest extends FormRequest implements IUpdateUserRequest
         return $this->input('name');
     }
 
-    public function getUserSurname()
+    public function getPhone()
     {
-        return $this->input('surname');
+        return $this->input('phone');
+    }
+
+    public function getCity()
+    {
+        return $this->input('city');
     }
 }

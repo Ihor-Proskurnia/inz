@@ -50,7 +50,32 @@ class OrderQuery implements IOrderQuery
 
         $filter = $this->app->make(OrderFilter::class, ['queryParams' => array_filter($data)]);
 
-        $query = $this->order->where('user_id', $trainer_id)->filter($filter);
+        $query = $this->order->where('orders.user_id', $trainer_id)
+            ->join('records', 'orders.id', '=', 'records.order_id')
+            ->select([
+                'orders.id',
+                'orders.category_id',
+                'orders.user_id',
+                'orders.date',
+                'orders.from_time',
+                'orders.to_time',
+                'orders.name',
+                'orders.description',
+                'orders.created_at',
+                'records.user_id as sportsman_id'
+            ])
+            ->filter($filter);
+
+        return $query->paginate($query_param->getPerPage());
+    }
+
+    public function showAll(IOrderListRequest $query_param)
+    {
+        $data = $query_param->validated();
+
+        $filter = $this->app->make(OrderFilter::class, ['queryParams' => array_filter($data)]);
+
+        $query = $this->order->filter($filter);
 
         return $query->paginate($query_param->getPerPage());
     }

@@ -22,7 +22,10 @@ class UserResource extends JsonResource
         return [
             'id' => $this->getId(),
             'name' => $this->getName(),
-            'email' => $this->getEmail()
+            'email' => $this->getEmail(),
+            'phone' => $this->getPhone(),
+            'city' => $this->getCity(),
+            'roles' => $this->showRoles(),
         ];
     }
 }

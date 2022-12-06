@@ -5,6 +5,7 @@ namespace Tests;
 use App\Models\Category;
 use App\Models\Order;
 use App\Models\Other\RoleType;
+use App\Models\Record;
 use App\Models\User;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 use Laravel\Sanctum\Sanctum;
@@ -54,5 +55,15 @@ abstract class TestCase extends BaseTestCase
         ])->create();
 
         return $this->order;
+    }
+
+    public function createRecord($order_id, $user_id)
+    {
+        $this->record = Record::factory()->state([
+            'order_id' => $order_id,
+            'user_id' => $user_id,
+        ])->create();
+
+        return $this->record;
     }
 }

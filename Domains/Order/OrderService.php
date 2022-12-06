@@ -41,4 +41,12 @@ class OrderService implements IOrderService
 
         return $show_orders->showByTrainer($trainer_id, $query_param);
     }
+
+    public function showAll(IOrderListRequest $query_param): LengthAwarePaginator
+    {
+        /* @var IOrderQuery $show_orders */
+        $show_orders = $this->app->make(OrderQuery::class);
+
+        return $show_orders->showAll($query_param);
+    }
 }

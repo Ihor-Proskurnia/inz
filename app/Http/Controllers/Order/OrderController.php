@@ -41,4 +41,13 @@ class OrderController extends Controller
 
         return $resource->response()->setStatusCode(Response::HTTP_CREATED);
     }
+
+    public function getOrders(OrderListRequest $request, OrderCase $use_case)
+    {
+        $response = $use_case->showAll($request);
+
+        $resource = new OrdersCollectionResource($response);
+
+        return $resource->response()->setStatusCode(Response::HTTP_OK);
+    }
 }

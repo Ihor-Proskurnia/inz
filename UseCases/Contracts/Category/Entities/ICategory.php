@@ -13,4 +13,6 @@ interface ICategory
     public function getDescription(): ?string;
 
     public function getExcerpt(): ?string;
+
+    public function getImg(): ?string;
 }

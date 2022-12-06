@@ -2,12 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Requests\User;
+namespace App\Http\Requests\Order;
 
 use Illuminate\Foundation\Http\FormRequest;
-use UseCases\Contracts\User\IUsersListRequest;
+use UseCases\Contracts\Order\IOrderListRequest;
+use UseCases\Contracts\Order\IRecordListRequest;
 
-class UsersListRequest extends FormRequest implements IUsersListRequest
+class RecordListRequest extends FormRequest implements IRecordListRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -19,14 +20,8 @@ class UsersListRequest extends FormRequest implements IUsersListRequest
         return true;
     }
 
-    // adding default value
     public function validationData()
     {
-        // adding default value
-        if (is_null($this->get('name_sort')) && is_null($this->get('name_sort'))) {
-            $this->query->add(['id' => 'ASC']);
-        }
-
         return $this->all();
     }
 
@@ -39,13 +34,8 @@ class UsersListRequest extends FormRequest implements IUsersListRequest
     {
         return [
             'name' => ['string', 'max:255'],
-            'surname' => ['string', 'max:255'],
-            'name_sort' =>
-                ['string', 'in:ASC,DESC'],
-            'surname_sort' =>
-                ['string', 'in:ASC,DESC'],
-            'deleted_search' =>
-                ['boolean'],
+            'from_date' => ['string', 'max:255'],
+            'to_date' => ['string', 'max:255'],
             'per_page' => 'numeric|gt:0',
             'page' => 'numeric|gt:0',
         ];

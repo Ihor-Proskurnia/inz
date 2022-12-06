@@ -8,5 +8,7 @@ interface IUpdateUserRequest
 {
     public function getUsername();
 
-    public function getUserSurname();
+    public function getPhone();
+
+    public function getCity();
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace User;
 
 use App\Models\User;
+use Carbon\Carbon;
 use User\Contracts\IRegister;
 use Illuminate\Support\Facades\Hash;
 use UseCases\Contracts\Requests\Auth\IRegisterUser;
@@ -32,11 +33,14 @@ class Register implements IRegister
 
     public function registerUser(IRegisterUser $request)
     {
-        return $this->user_model->create([
+        $user = $this->user_model->create([
             'name' => $request->getUsername(),
             'surname' =>$request->getUserSurname(),
             'email' => strtolower($request->getEmail()),
             'password' => $this->hash::make($request->getUserPassword()),
         ]);
+        $user->markEmailAsVerified();
+
+        return $user;
     }
 }
