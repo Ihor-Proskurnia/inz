@@ -24,6 +24,7 @@ class OrderResource extends JsonResource
             'date' => $this->getDate(),
             'from_date' => $this->getFromTime(),
             'to_time' => $this->getToTime(),
+            'reserved' => $this->checkHasRecord(),
         ];
     }
 }

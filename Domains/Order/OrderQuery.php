@@ -51,7 +51,7 @@ class OrderQuery implements IOrderQuery
         $filter = $this->app->make(OrderFilter::class, ['queryParams' => array_filter($data)]);
 
         $query = $this->order->where('orders.user_id', $trainer_id)
-            ->join('records', 'orders.id', '=', 'records.order_id')
+            ->leftJoin('records', 'orders.id', '=', 'records.order_id')
             ->select([
                 'orders.id',
                 'orders.category_id',
