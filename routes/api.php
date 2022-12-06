@@ -40,6 +40,8 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
         ->name('orders.show.category');
     Route::get('orders/trainer/{trainer_id}', [OrderController::class, 'showByTrainer'])
         ->name('orders.show.trainer');
+    Route::get('orders/delete/{order_id}', [OrderController::class, 'delete'])
+        ->name('orders.delete');
 //        ->can('showByTrainer', Order::class);
     Route::post('orders/{trainer_id}', [OrderController::class, 'addOrder'])
         ->name('orders.add');
