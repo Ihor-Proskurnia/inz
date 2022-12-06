@@ -46,9 +46,9 @@ class OrderService implements IOrderService
         return $show_orders->showByTrainer($trainer_id, $query_param);
     }
 
-    public function delete(int $order_id)
+    public function delete(int $order_id, int $user_id)
     {
-        return $this->order->newQuery()->where('id', $order_id)->delete();
+        return $this->order->newQuery()->where('id', $order_id)->where('user_id', $user_id)->delete();
     }
 
     public function showAll(IOrderListRequest $query_param): LengthAwarePaginator

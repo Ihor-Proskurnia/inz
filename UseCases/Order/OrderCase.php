@@ -44,12 +44,12 @@ class OrderCase
         return $order_service->showByTrainer($trainer_id, $request);
     }
 
-    public function delete(int $order_id)
+    public function delete(int $order_id, int $user_id)
     {
         /** @var IOrderService $order_service */
         $order_service = $this->domain_service_factory->create(IOrderService::class);
 
-        return $order_service->delete($order_id);
+        return $order_service->delete($order_id, $user_id);
     }
 
     public function createOrder(int $trainer_id, ICreateOrderRequest $data_provider)
