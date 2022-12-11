@@ -56,6 +56,11 @@ class Order extends BaseModel implements IOrder
         return $this->name;
     }
 
+    public function getTrainerName(): ?string
+    {
+        return $this->trainer_name;
+    }
+
     public function getDescription(): string
     {
         return $this->description;
