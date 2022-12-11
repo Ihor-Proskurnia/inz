@@ -12,6 +12,8 @@ interface IUser
 
     public function getEmail(): string;
 
+    public function getDescription(): ?string;
+
     public function getPhone(): ?string;
 
     public function getCity(): ?string;

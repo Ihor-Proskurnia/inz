@@ -11,4 +11,6 @@ interface IUpdateUserRequest
     public function getPhone();
 
     public function getCity();
+
+    public function getDescription();
 }

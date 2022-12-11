@@ -20,6 +20,7 @@ class OrderResource extends JsonResource
         return [
             'id' => $this->getId(),
             'name' => $this->getName(),
+            'trainer_name' => $this->getTrainerName(),
             'description' => $this->getDescription(),
             'date' => $this->getDate(),
             'from_date' => $this->getFromTime(),
