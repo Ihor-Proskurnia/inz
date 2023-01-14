@@ -49,4 +49,9 @@ class Record extends BaseModel implements IRecord
     {
         return $this->date;
     }
+
+    public function getTrainer()
+    {
+        return $this->trainer_id;
+    }
 }

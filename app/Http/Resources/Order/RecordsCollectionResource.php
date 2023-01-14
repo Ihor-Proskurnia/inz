@@ -40,6 +40,7 @@ class RecordsCollectionResource extends ResourceCollection
                 'date' => $item->getDate(),
                 'from_time' => $item->getFromTime(),
                 'to_time' => $item->getToTime(),
+                'trainer_id' => $item->getTrainer()
             ];
         });
     }
