@@ -40,9 +40,11 @@ class RecordCommand implements IRecordCommand
         $filter = $this->app->make(RecordFilter::class, ['queryParams' => array_filter($data)]);
 
         $query = $this->record->newQuery()
+                ->where('records.user_id', '=', $user_id)
                 ->join('orders', 'records.order_id', '=', 'orders.id')
                 ->select([
                     'orders.date',
+                    'orders.user_id as trainer_id',
                     'orders.from_time',
                     'orders.to_time',
                     'orders.name',
