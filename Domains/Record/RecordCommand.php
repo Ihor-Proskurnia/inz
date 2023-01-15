@@ -43,6 +43,7 @@ class RecordCommand implements IRecordCommand
                 ->where('records.user_id', '=', $user_id)
                 ->join('orders', 'records.order_id', '=', 'orders.id')
                 ->select([
+                    'records.id',
                     'orders.date',
                     'orders.user_id as trainer_id',
                     'orders.from_time',
