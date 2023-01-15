@@ -37,6 +37,7 @@ class OrdersCollectionResource extends ResourceCollection
             return [
                 'id' => $item->getId(),
                 'name' => $item->getName(),
+                'trainer_name' => $item->getTrainerName(),
                 'description' => $item->getDescription(),
                 'date' => $item->getDate(),
                 'from_date' => $item->getFromTime(),

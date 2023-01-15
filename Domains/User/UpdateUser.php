@@ -28,6 +28,7 @@ class UpdateUser implements IUpdateUser
             'name' => $data_provider->getUsername(),
             'city' => $data_provider->getCity(),
             'phone' => $data_provider->getPhone(),
+            'description' => $data_provider->getDescription(),
         ]);
 
         return $domain_user;

@@ -7,6 +7,7 @@ namespace Order;
 use Order\Contracts\IOrderQuery;
 use Illuminate\Foundation\Application;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Order\Entities\Order;
 use UseCases\Contracts\Order\IOrderListRequest;
 use UseCases\Contracts\Order\IOrderService;
 
@@ -17,12 +18,15 @@ class OrderService implements IOrderService
      */
     public Application $app;
 
+    private Order $order;
+
     /**
      * @param Application $app
      */
-    public function __construct(Application $app)
+    public function __construct(Application $app, Order $order)
     {
         $this->app = $app;
+        $this->order = $order;
     }
 
 
@@ -40,6 +44,11 @@ class OrderService implements IOrderService
         $show_orders = $this->app->make(OrderQuery::class);
 
         return $show_orders->showByTrainer($trainer_id, $query_param);
+    }
+
+    public function delete(int $order_id, int $user_id)
+    {
+        return $this->order->newQuery()->where('id', $order_id)->where('user_id', $user_id)->delete();
     }
 
     public function showAll(IOrderListRequest $query_param): LengthAwarePaginator

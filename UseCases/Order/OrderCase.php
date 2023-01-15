@@ -12,6 +12,7 @@ use UseCases\Contracts\Order\IOrderCommand;
 use UseCases\Contracts\Order\IOrderListRequest;
 use UseCases\Contracts\Order\IOrderService;
 use UseCases\Contracts\ResponseObjects\IError;
+use UseCases\Contracts\ResponseObjects\ISuccess;
 use UseCases\DomainServiceFactory;
 use Illuminate\Pagination\LengthAwarePaginator;
 
@@ -41,6 +42,14 @@ class OrderCase
         $order_service = $this->domain_service_factory->create(IOrderService::class);
 
         return $order_service->showByTrainer($trainer_id, $request);
+    }
+
+    public function delete(int $order_id, int $user_id)
+    {
+        /** @var IOrderService $order_service */
+        $order_service = $this->domain_service_factory->create(IOrderService::class);
+
+        return $order_service->delete($order_id, $user_id);
     }
 
     public function createOrder(int $trainer_id, ICreateOrderRequest $data_provider)

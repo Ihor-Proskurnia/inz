@@ -22,8 +22,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
     // Users
-    Route::get('users', [UserController::class, 'showUsers'])->name('users.show')
-        ->can('showUsers', User::class);
+    Route::get('users', [UserController::class, 'showUsers'])->name('users.show');
+//        ->can('showUsers', User::class);
     Route::get('user/{user}', [UserController::class, 'show'])->name('user.show');
 //        ->can('show', 'user');
     Route::put('user/update', [UserController::class, 'update'])->name('user.update');
@@ -40,6 +40,8 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
         ->name('orders.show.category');
     Route::get('orders/trainer/{trainer_id}', [OrderController::class, 'showByTrainer'])
         ->name('orders.show.trainer');
+    Route::get('orders/delete/{order_id}', [OrderController::class, 'delete'])
+        ->name('orders.delete');
 //        ->can('showByTrainer', Order::class);
     Route::post('orders/{trainer_id}', [OrderController::class, 'addOrder'])
         ->name('orders.add');

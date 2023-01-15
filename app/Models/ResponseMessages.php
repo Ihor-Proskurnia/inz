@@ -18,4 +18,6 @@ class ResponseMessages
     public const REMOVE_YOURSELF = 'Remove yourself from company is not a good idea';
     public const SUCCESS_REMOVE_USER = 'User was removed';
     public const SUCCESS_ACTIVATE_USER = 'User was activated';
+
+    public const SUCCESS_REMOVE_ORDER = 'Order was removed';
 }
