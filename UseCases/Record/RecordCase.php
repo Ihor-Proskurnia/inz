@@ -50,7 +50,7 @@ class RecordCase
     public function delete(int $record_id)
     {
         /** @var IRecordCommand $record_command */
-        $record_command = $this->domain_service_factory->create(IOrderService::class);
+        $record_command = $this->domain_service_factory->create(IRecordCommand::class);
 
         return $record_command->delete($record_id);
     }
