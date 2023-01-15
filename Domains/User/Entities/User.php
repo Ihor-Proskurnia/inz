@@ -46,6 +46,11 @@ class User extends ModelUser implements IUser
         return $this->city;
     }
 
+    public function getCreatedAt()
+    {
+        return $this->created_at;
+    }
+
     public function showRoles(): Collection
     {
         return $this->getRoles();

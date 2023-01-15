@@ -19,4 +19,6 @@ interface IUser
     public function getCity(): ?string;
 
     public function showRoles(): Collection;
+
+    public function getCreatedAt();
 }
