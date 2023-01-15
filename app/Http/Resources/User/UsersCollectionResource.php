@@ -42,6 +42,7 @@ class UsersCollectionResource extends ResourceCollection
                 'phone' => $item->getPhone(),
                 'city' => $item->getCity(),
                 'roles' => $item->showRoles(),
+                'created_at' => $item->getCreatedAt(),
             ];
         });
     }
