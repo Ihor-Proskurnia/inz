@@ -20,4 +20,6 @@ class ResponseMessages
     public const SUCCESS_ACTIVATE_USER = 'User was activated';
 
     public const SUCCESS_REMOVE_ORDER = 'Order was removed';
+
+    public const SUCCESS_REMOVE_RECORD = 'Record was removed';
 }

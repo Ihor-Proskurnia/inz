@@ -54,4 +54,9 @@ class RecordCommand implements IRecordCommand
 
         return $query->paginate($request->getPerPage());
     }
+
+    public function delete(int $record_id)
+    {
+        return $this->record->newQuery()->where('id', $record_id)->delete();
+    }
 }

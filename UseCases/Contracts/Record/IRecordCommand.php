@@ -14,4 +14,5 @@ interface IRecordCommand
 {
     public function createRecord(int $order_id, int $user_id): IRecord;
     public function showByUser(int $user_id, IRecordListRequest $request): LengthAwarePaginator;
+    public function delete(int $record_id);
 }

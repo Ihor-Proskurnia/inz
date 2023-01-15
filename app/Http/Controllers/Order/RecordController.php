@@ -12,6 +12,8 @@ use App\Http\Resources\Order\OrdersCollectionResource;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Order\RecordResource;
 use App\Http\Resources\Order\RecordsCollectionResource;
+use App\Models\Other\BadMessages;
+use App\Models\ResponseMessages;
 use Symfony\Component\HttpFoundation\Response;
 use UseCases\Contracts\ResponseObjects\IError;
 use UseCases\Order\OrderCase;
@@ -36,5 +38,16 @@ class RecordController extends Controller
         $resource = new RecordsCollectionResource($response);
 
         return $resource->response()->setStatusCode(Response::HTTP_OK);
+    }
+
+    public function delete(int $record_id,  RecordCase $use_case)
+    {
+        $response = $use_case->delete($record_id);
+
+        if ($response) {
+            return response(['message' => ResponseMessages::SUCCESS_REMOVE_RECORD], Response::HTTP_OK);
+        }
+
+        return response(['message' => BadMessages::ERROR_REMOVE_RECORD], Response::HTTP_BAD_REQUEST);
     }
 }
