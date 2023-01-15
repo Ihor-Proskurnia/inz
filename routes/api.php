@@ -47,5 +47,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
         ->name('add.record');
     Route::get('records/{user_id}', [RecordController::class, 'getByUser'])
         ->name('records.show.user');
+    Route::get('record/delete/{record_id}', [RecordController::class, 'delete'])
+        ->name('records.delete');
 
 });

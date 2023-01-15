@@ -46,4 +46,12 @@ class RecordCase
 
         return $record_command->showByUser($user_id, $request);
     }
+
+    public function delete(int $record_id)
+    {
+        /** @var IRecordCommand $record_command */
+        $record_command = $this->domain_service_factory->create(IRecordCommand::class);
+
+        return $record_command->delete($record_id);
+    }
 }
