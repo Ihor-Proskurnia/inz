@@ -35,6 +35,7 @@ class RecordsCollectionResource extends ResourceCollection
         return $this->collection->map(function ($item, $key) {
             /** @var IRecord $item */
             return [
+                'id' => $item->getId(),
                 'name' => $item->getName(),
                 'description' => $item->getDescription(),
                 'date' => $item->getDate(),
