@@ -20,4 +20,6 @@ class BadMessages
     // Order
     public const ERROR_CREATE_ORDER = "Order was not created";
     public const ERROR_REMOVE_ORDER = 'Order was not removed';
+
+    public const ERROR_REMOVE_RECORD = 'Record was not removed';
 }
