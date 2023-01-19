@@ -41,6 +41,15 @@ class DatabaseSeeder extends Seeder
         $sportsman_2 = User::factory()->create();
         $sportsman_2->assign(RoleType::SPORTSMAN);
 
+        $trainer_3 = User::factory()->create();
+        $trainer_3->assign(RoleType::TRAINER);
+
+        $trainer_4 = User::factory()->create();
+        $trainer_4->assign(RoleType::TRAINER);
+
+        $trainer_5 = User::factory()->create();
+        $trainer_5->assign(RoleType::TRAINER);
+
         $cat_1 = Category::factory()->state([
             'name' => 'BOKS',
             'description' => 'Zajęcia boksu to świetny trening dla każdego, kto chce pracować nad wzmocnieniem ciała, ale i psychiki. Zdecydowanie jest to bardzo intensywny i wymagający trening. Dzięki tym ćwiczeniom szybko pozbędziesz się zbędnej tkanki tłuszczowej i uzyskasz silne i wyrzeźbione mięśnie. Na treningu nauczysz się techniki, a także poznasz określone sekwencje ruchów. Świadoma praca z własnym ciałem i umysłem przyniesie Ci wiele satysfakcji i zwiększy pewność siebie.',
