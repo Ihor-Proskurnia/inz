@@ -8,6 +8,7 @@ use App\Models\Order;
 use App\Models\Other\RoleType;
 use App\Models\Record;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -25,17 +26,17 @@ class DatabaseSeeder extends Seeder
         $trainer = User::factory()->create();
         $trainer->assign(RoleType::TRAINER);
 
-        $trainer_1 = User::factory()->create();
-        $trainer_1->assign(RoleType::TRAINER);
-
-        $trainer_2 = User::factory()->create();
-        $trainer_2->assign(RoleType::TRAINER);
-
         $sportsman = User::factory()->create();
         $sportsman->assign(RoleType::SPORTSMAN);
 
+        $trainer_1 = User::factory()->create();
+        $trainer_1->assign(RoleType::TRAINER);
+
         $sportsman_1 = User::factory()->create();
         $sportsman_1->assign(RoleType::SPORTSMAN);
+
+        $trainer_2 = User::factory()->create();
+        $trainer_2->assign(RoleType::TRAINER);
 
         $sportsman_2 = User::factory()->create();
         $sportsman_2->assign(RoleType::SPORTSMAN);
@@ -58,10 +59,28 @@ class DatabaseSeeder extends Seeder
             'url_link' => 'https://r4.wallpaperflare.com/wallpaper/155/896/46/girl-gym-running-treadmill-smiling-sport-earphones-wallpaper-a2c16280bdf64e1bea085285a0a8a992.jpg',
         ])->create();
 
+        $cat_4 = Category::factory()->state([
+            'name' => 'POLE DANCE',
+            'description' => 'Połączenie tańca, gimnastyki i akrobatyki. Niezwykle popularna forma treningu tanecznego, w którym wszystkie figury wykonuje się przy i na pionowym drążku. Zajęcia dla osób początkujących koncentrują się przede wszystkim na wzmocnieniu mięśni niezbędnych do utrzymania się na rurze (brzucha, ramion, grzbietu), rozciągnięciu i uelastycznieniu całego ciała oraz nauce prostych chwytów, figur i obrotów. Ćwiczone elementy są następnie łączone w proste choreografie, które z czasem stają się coraz bardziej efektowne, zróżnicowane i wymagające technicznie.',
+            'url_link' => 'https://r4.wallpaperflare.com/wallpaper/661/291/616/girl-hair-brunette-shoes-wallpaper-6271b2009d764e2bda38e275a0b83962.jpg',
+        ])->create();
+
+        $cat_5 = Category::factory()->state([
+            'name' => 'AKTYWNY SENIOR',
+            'description' => 'Specjalistyczne zajęcia dedykowane seniorom. Ten unikalny zestaw ćwiczeń pozwoli rozpocząć przygodę z aktywnością fizyczną, która z kolei poprawi komfort życia i wpłynie pozytywnie na samopoczucie. Z pewnością aktywność fizyczna w tej formie będzie miała także funkcje rehabilitacyjne. Seniorzy popracują nad poprawą krążenia, ruchomością stawów, a także poprawią swój stan psychiczny i samopoczucie. Aktywność w grupie, oprócz wpływu na zdrowie pozwoli także na eliminowanie poczucia izolacji.',
+            'url_link' => 'https://cdn-prod.medicalnewstoday.com/content/images/articles/325/325004/senior-man-doing-squats.jpg',
+        ])->create();
+
+        $cat_6 = Category::factory()->state([
+            'name' => 'JOGA',
+            'description' => 'Zajęcia te biją rekordy popularności i zdobywają uznanie coraz większej liczby osób. Opierają się głównie na technikach relaksacyjnych i oddechowych, dzięki temu wpływają pozytywnie nie tylko na ciało, ale także na ogólne samopoczucie i nastrój. Wyciszające ćwiczenia w rytm spokojnej muzyki pozwolą Ci ukoić myśli i zdobyć energię na nowe wyzwania dnia codziennego. Często podczas treningu wykorzystuje się akcesoria treningowe takie jak: paski czy klocki.',
+            'url_link' => 'https://c1.wallpaperflare.com/preview/29/446/501/kettlebell-fitness-crossfit-fit.jpg',
+        ])->create();
+
         $order_1 = Order::factory()->state([
             'category_id' => $cat_1->id,
             'user_id' => $trainer->id,
-            'date' => '2022-12-13',
+            'date' => Carbon::now()->addDays(3)->format('Y-m-d'),
             'from_time' => '11:00',
             'to_time' => '12:00',
             'name' => 'Name 1',
@@ -71,7 +90,7 @@ class DatabaseSeeder extends Seeder
         $order_2 = Order::factory()->state([
             'category_id' => $cat_2->id,
             'user_id' => $trainer_1->id,
-            'date' => '2022-12-12',
+            'date' => Carbon::now()->addDays(6)->format('Y-m-d'),
             'from_time' => '12:00',
             'to_time' => '13:00',
             'name' => 'Name 1',
@@ -81,7 +100,47 @@ class DatabaseSeeder extends Seeder
         $order_3 = Order::factory()->state([
             'category_id' => $cat_2->id,
             'user_id' => $trainer_1->id,
-            'date' => '2022-12-11',
+            'date' => Carbon::now()->addDays(2)->format('Y-m-d'),
+            'from_time' => '13:00',
+            'to_time' => '11:00',
+            'name' => 'Name 1',
+            'description' => 'DESCXXXCXC'
+        ])->create();
+
+        $order_4 = Order::factory()->state([
+            'category_id' => $cat_2->id,
+            'user_id' => $trainer_1->id,
+            'date' => Carbon::now()->subDays(2)->format('Y-m-d'),
+            'from_time' => '13:00',
+            'to_time' => '11:00',
+            'name' => 'Name 1',
+            'description' => 'DESCXXXCXC'
+        ])->create();
+
+        $order_5 = Order::factory()->state([
+            'category_id' => $cat_5->id,
+            'user_id' => $trainer_1->id,
+            'date' => Carbon::now()->subDays(2)->format('Y-m-d'),
+            'from_time' => '13:00',
+            'to_time' => '11:00',
+            'name' => 'Name 1',
+            'description' => 'DESCXXXCXC'
+        ])->create();
+
+        $order_6 = Order::factory()->state([
+            'category_id' => $cat_5->id,
+            'user_id' => $trainer_1->id,
+            'date' => Carbon::now()->subDays(1)->format('Y-m-d'),
+            'from_time' => '13:00',
+            'to_time' => '11:00',
+            'name' => 'Name 1',
+            'description' => 'DESCXXXCXC'
+        ])->create();
+
+        $order_7 = Order::factory()->state([
+            'category_id' => $cat_6->id,
+            'user_id' => $trainer_1->id,
+            'date' => Carbon::now()->format('Y-m-d'),
             'from_time' => '13:00',
             'to_time' => '11:00',
             'name' => 'Name 1',
@@ -100,6 +159,21 @@ class DatabaseSeeder extends Seeder
 
         $record_3 = Record::factory()->state([
             'order_id' => $order_3->id,
+            'user_id' => $sportsman->id
+        ])->create();
+
+        $record_2 = Record::factory()->state([
+            'order_id' => $order_5->id,
+            'user_id' => $sportsman_2->id
+        ])->create();
+
+        $record_2 = Record::factory()->state([
+            'order_id' => $order_4->id,
+            'user_id' => $sportsman_2->id
+        ])->create();
+
+        $record_2 = Record::factory()->state([
+            'order_id' => $order_6->id,
             'user_id' => $sportsman->id
         ])->create();
     }
