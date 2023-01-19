@@ -77,14 +77,26 @@ class DatabaseSeeder extends Seeder
             'url_link' => 'https://c1.wallpaperflare.com/preview/29/446/501/kettlebell-fitness-crossfit-fit.jpg',
         ])->create();
 
+        $cat_7 = Category::factory()->state([
+            'name' => 'FULL BODY WORKOUT',
+            'description' => 'Kompleksowy trening, który wpłynie pozytywnie na całe ciało. Podczas tego treningu ogólnorozwojowego będziesz pracować nad najważniejszymi partiami mięśniowymi. Po pierwsze są to intensywne ćwiczenia cardio, a po drugie najlepsze ćwiczenia wzmacniające całe ciało. W trakcie zajęć często wykorzystywane są dodatkowe akcesoria treningowe: hantle, gumy, sztangi, czy piłki. Te zajęcia zdobyły uznanie wśród klientów, ponieważ dbają o całe ciało i pomagają uzyskać idealną sylwetkę.',
+            'url_link' => 'https://r4.wallpaperflare.com/wallpaper/37/985/194/workout-gym-bodybuilder-wallpaper-68683bb4258d728691ea7d6c73a784d0.jpg',
+        ])->create();
+
+        $cat_8 = Category::factory()->state([
+            'name' => 'MMA',
+            'description' => 'MMA, czyli mieszane sztuki walki, to dyscyplina sportowa, w której zawodnicy walczą za pomocą technik zaczerpniętych z wielu różnych sztuk walki. MMA jest wielkim widowiskiem sportowym, a prezentowane walki na scenie robią duże wrażenie na odbiorcach. Wszystko dzięki dużej swobodzie doboru technik i chwytów. W MMA używa się taktyk sportowych z boksu, zapasów, judo, kick-boxingu czy ju-jitsu.',
+            'url_link' => 'https://r4.wallpaperflare.com/wallpaper/327/906/477/sports-mixed-martial-arts-conor-mcgregor-mma-wallpaper-98c89daef5d7138487df4910e879c1b0.jpg',
+        ])->create();
+
         $order_1 = Order::factory()->state([
             'category_id' => $cat_1->id,
             'user_id' => $trainer->id,
             'date' => Carbon::now()->addDays(3)->format('Y-m-d'),
             'from_time' => '11:00',
             'to_time' => '12:00',
-            'name' => 'Name 1',
-            'description' => 'DESCXXXCXC'
+            'name' => 'Treningi indywidualne Boks / Kickboxing / Bjj / Samoobrona',
+            'description' => 'Mam na imię Mikołaj, ze sportami walki związany jestem od 10 lat, posiadam purpurowy pas w brazylisjkim ju jitsu a także jestem medalistą mistrzostw Europy oraz polski w bjj. Posiadam certyfikat z uprawnieniami instruktora.Zapraszam na treningi indywidualne z zakresu : samoobronysportów uderzanych (muay thai, kickboxing, mma) sportów chwytanych bjj budowania formy fizycznej z wykorzystaniem masy własnego ciała możliwość pomocy w treningu siłowym posiadam doświadczenie w przygotowaniu fizycznym pod udział w biegach typu runmagedon, survival race-możliwość pomocy w doborze suplementacji oraz metod zdrowego odżywiania Swoją ofertę kieruje zarówno do osób dorosłych jak i dzieci.'
         ])->create();
 
         $order_2 = Order::factory()->state([
@@ -93,8 +105,8 @@ class DatabaseSeeder extends Seeder
             'date' => Carbon::now()->addDays(6)->format('Y-m-d'),
             'from_time' => '12:00',
             'to_time' => '13:00',
-            'name' => 'Name 1',
-            'description' => 'DESCXXXCXC'
+            'name' => 'Treningi indywidualne Boks / Kickboxing / Bjj / Samoobrona',
+            'description' => 'Mam na imię Mikołaj, ze sportami walki związany jestem od 10 lat, posiadam purpurowy pas w brazylisjkim ju jitsu a także jestem medalistą mistrzostw Europy oraz polski w bjj. Posiadam certyfikat z uprawnieniami instruktora.Zapraszam na treningi indywidualne z zakresu : samoobrony sportów uderzanych (muay thai, kickboxing, mma) sportów chwytanych bjj budowania formy fizycznej z wykorzystaniem masy własnego ciała możliwość pomocy w treningu siłowym posiadam doświadczenie w przygotowaniu fizycznym pod udział w biegach typu runmagedon, survival race możliwość pomocy w doborze suplementacji oraz metod zdrowego odżywiania Swoją ofertę kieruje zarówno do osób dorosłych jak i dzieci.'
         ])->create();
 
         $order_3 = Order::factory()->state([
@@ -103,8 +115,8 @@ class DatabaseSeeder extends Seeder
             'date' => Carbon::now()->addDays(2)->format('Y-m-d'),
             'from_time' => '13:00',
             'to_time' => '11:00',
-            'name' => 'Name 1',
-            'description' => 'DESCXXXCXC'
+            'name' => 'Treningi - sporty walki/ trening siłowy.',
+            'description' => 'DESC'
         ])->create();
 
         $order_4 = Order::factory()->state([
@@ -123,8 +135,8 @@ class DatabaseSeeder extends Seeder
             'date' => Carbon::now()->subDays(2)->format('Y-m-d'),
             'from_time' => '13:00',
             'to_time' => '11:00',
-            'name' => 'Name 1',
-            'description' => 'DESCXXXCXC'
+            'name' => 'Instruktorka jogi',
+            'description' => 'Cześć! Mam na imię Ewa i od ponad dwóch lat uczę jogi na różnych poziomach zaawansowania, udzielam lekcji indywidualnych lub w małych grupach na terenie Warszawy oraz online. Jogę praktykuję już 10 lat, a styl jakiego uczę to Vinyasa yoga czyli połączenie ruchu z oddechem.'
         ])->create();
 
         $order_6 = Order::factory()->state([
@@ -133,8 +145,8 @@ class DatabaseSeeder extends Seeder
             'date' => Carbon::now()->subDays(1)->format('Y-m-d'),
             'from_time' => '13:00',
             'to_time' => '11:00',
-            'name' => 'Name 1',
-            'description' => 'DESCXXXCXC'
+            'name' => 'Trener personalny Pilates z elementami Yogi i rozciągania',
+            'description' => 'Ćwiczenia Pilates przyczyniają się do: poprawy siły mięśniowej lepszego funkcjonowania kręgosłupa i poprawy postawy ciała, postury zwiększenia elastyczności redukucji stresu ogólnej poprawy zdrowia Ćwiczenia te mają ogromny wpływ na biomechaniczną pracę dna miednicy. Dlatego Pilates oraz niektóre ćwiczenia Jogi są uważane za jedną z najlepszych metod dla osób z PROBLEMAMI Z KRĘGOSŁUPEM. Co więcej, jest to bardzo BEZPIECZNA forma aktywności fizycznej.'
         ])->create();
 
         $order_7 = Order::factory()->state([
@@ -143,8 +155,8 @@ class DatabaseSeeder extends Seeder
             'date' => Carbon::now()->format('Y-m-d'),
             'from_time' => '13:00',
             'to_time' => '11:00',
-            'name' => 'Name 1',
-            'description' => 'DESCXXXCXC'
+            'name' => 'Treningi - sporty walki/ trening siłowy.',
+            'description' => 'Desc'
         ])->create();
 
         $record_1 = Record::factory()->state([
