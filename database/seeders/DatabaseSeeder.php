@@ -104,7 +104,7 @@ class DatabaseSeeder extends Seeder
             'date' => Carbon::now()->addDays(3)->format('Y-m-d'),
             'from_time' => '11:00',
             'to_time' => '12:00',
-            'name' => 'Treningi indywidualne Boks / Kickboxing / Bjj / Samoobrona',
+            'name' => 'Kickboxing',
             'description' => 'Mam na imię Mikołaj, ze sportami walki związany jestem od 10 lat, posiadam purpurowy pas w brazylisjkim ju jitsu a także jestem medalistą mistrzostw Europy oraz polski w bjj. Posiadam certyfikat z uprawnieniami instruktora.Zapraszam na treningi indywidualne z zakresu : samoobronysportów uderzanych (muay thai, kickboxing, mma) sportów chwytanych bjj budowania formy fizycznej z wykorzystaniem masy własnego ciała możliwość pomocy w treningu siłowym posiadam doświadczenie w przygotowaniu fizycznym pod udział w biegach typu runmagedon, survival race-możliwość pomocy w doborze suplementacji oraz metod zdrowego odżywiania Swoją ofertę kieruje zarówno do osób dorosłych jak i dzieci.'
         ])->create();
 
@@ -114,7 +114,7 @@ class DatabaseSeeder extends Seeder
             'date' => Carbon::now()->addDays(6)->format('Y-m-d'),
             'from_time' => '12:00',
             'to_time' => '13:00',
-            'name' => 'Treningi indywidualne Boks / Kickboxing / Bjj / Samoobrona',
+            'name' => 'Boks',
             'description' => 'Mam na imię Mikołaj, ze sportami walki związany jestem od 10 lat, posiadam purpurowy pas w brazylisjkim ju jitsu a także jestem medalistą mistrzostw Europy oraz polski w bjj. Posiadam certyfikat z uprawnieniami instruktora.Zapraszam na treningi indywidualne z zakresu : samoobrony sportów uderzanych (muay thai, kickboxing, mma) sportów chwytanych bjj budowania formy fizycznej z wykorzystaniem masy własnego ciała możliwość pomocy w treningu siłowym posiadam doświadczenie w przygotowaniu fizycznym pod udział w biegach typu runmagedon, survival race możliwość pomocy w doborze suplementacji oraz metod zdrowego odżywiania Swoją ofertę kieruje zarówno do osób dorosłych jak i dzieci.'
         ])->create();
 
@@ -124,7 +124,7 @@ class DatabaseSeeder extends Seeder
             'date' => Carbon::now()->addDays(2)->format('Y-m-d'),
             'from_time' => '15:00',
             'to_time' => '16:30',
-            'name' => 'Treningi - sporty walki/ trening siłowy.',
+            'name' => 'Sporty walki',
             'description' => 'DESC'
         ])->create();
 
@@ -144,7 +144,7 @@ class DatabaseSeeder extends Seeder
             'date' => Carbon::now()->subDays(2)->format('Y-m-d'),
             'from_time' => '9:00',
             'to_time' => '11:00',
-            'name' => 'Instruktorka jogi',
+            'name' => 'Joga',
             'description' => 'Cześć! Mam na imię Ewa i od ponad dwóch lat uczę jogi na różnych poziomach zaawansowania, udzielam lekcji indywidualnych lub w małych grupach na terenie Warszawy oraz online. Jogę praktykuję już 10 lat, a styl jakiego uczę to Vinyasa yoga czyli połączenie ruchu z oddechem.'
         ])->create();
 
@@ -154,7 +154,7 @@ class DatabaseSeeder extends Seeder
             'date' => Carbon::now()->subDays(1)->format('Y-m-d'),
             'from_time' => '11:00',
             'to_time' => '11:45',
-            'name' => 'Trener personalny Pilates z elementami Yogi i rozciągania',
+            'name' => 'Pilates',
             'description' => 'Ćwiczenia Pilates przyczyniają się do: poprawy siły mięśniowej lepszego funkcjonowania kręgosłupa i poprawy postawy ciała, postury zwiększenia elastyczności redukucji stresu ogólnej poprawy zdrowia Ćwiczenia te mają ogromny wpływ na biomechaniczną pracę dna miednicy. Dlatego Pilates oraz niektóre ćwiczenia Jogi są uważane za jedną z najlepszych metod dla osób z PROBLEMAMI Z KRĘGOSŁUPEM. Co więcej, jest to bardzo BEZPIECZNA forma aktywności fizycznej.'
         ])->create();
 
@@ -164,7 +164,7 @@ class DatabaseSeeder extends Seeder
             'date' => Carbon::now()->format('Y-m-d'),
             'from_time' => '14:00',
             'to_time' => '16:00',
-            'name' => 'Treningi - sporty walki/ trening siłowy.',
+            'name' => 'Trening siłowy.',
             'description' => 'Desc'
         ])->create();
 
