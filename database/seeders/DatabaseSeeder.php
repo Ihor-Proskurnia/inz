@@ -164,7 +164,7 @@ class DatabaseSeeder extends Seeder
             'date' => Carbon::now()->format('Y-m-d'),
             'from_time' => '14:00',
             'to_time' => '16:00',
-            'name' => 'Trening siłowy.',
+            'name' => 'Trening siłowy',
             'description' => 'Desc'
         ])->create();
 
