@@ -122,8 +122,8 @@ class DatabaseSeeder extends Seeder
             'category_id' => $cat_2->id,
             'user_id' => $trainer_1->id,
             'date' => Carbon::now()->addDays(2)->format('Y-m-d'),
-            'from_time' => '13:00',
-            'to_time' => '11:00',
+            'from_time' => '15:00',
+            'to_time' => '16:30',
             'name' => 'Treningi - sporty walki/ trening siłowy.',
             'description' => 'DESC'
         ])->create();
@@ -132,17 +132,17 @@ class DatabaseSeeder extends Seeder
             'category_id' => $cat_2->id,
             'user_id' => $trainer_1->id,
             'date' => Carbon::now()->subDays(2)->format('Y-m-d'),
-            'from_time' => '13:00',
-            'to_time' => '11:00',
+            'from_time' => '17:00',
+            'to_time' => '18:00',
             'name' => 'Name 1',
-            'description' => 'DESCXXXCXC'
+            'description' => 'DESC'
         ])->create();
 
         $order_5 = Order::factory()->state([
             'category_id' => $cat_5->id,
             'user_id' => $trainer_1->id,
             'date' => Carbon::now()->subDays(2)->format('Y-m-d'),
-            'from_time' => '13:00',
+            'from_time' => '9:00',
             'to_time' => '11:00',
             'name' => 'Instruktorka jogi',
             'description' => 'Cześć! Mam na imię Ewa i od ponad dwóch lat uczę jogi na różnych poziomach zaawansowania, udzielam lekcji indywidualnych lub w małych grupach na terenie Warszawy oraz online. Jogę praktykuję już 10 lat, a styl jakiego uczę to Vinyasa yoga czyli połączenie ruchu z oddechem.'
@@ -152,8 +152,8 @@ class DatabaseSeeder extends Seeder
             'category_id' => $cat_5->id,
             'user_id' => $trainer_1->id,
             'date' => Carbon::now()->subDays(1)->format('Y-m-d'),
-            'from_time' => '13:00',
-            'to_time' => '11:00',
+            'from_time' => '11:00',
+            'to_time' => '11:45',
             'name' => 'Trener personalny Pilates z elementami Yogi i rozciągania',
             'description' => 'Ćwiczenia Pilates przyczyniają się do: poprawy siły mięśniowej lepszego funkcjonowania kręgosłupa i poprawy postawy ciała, postury zwiększenia elastyczności redukucji stresu ogólnej poprawy zdrowia Ćwiczenia te mają ogromny wpływ na biomechaniczną pracę dna miednicy. Dlatego Pilates oraz niektóre ćwiczenia Jogi są uważane za jedną z najlepszych metod dla osób z PROBLEMAMI Z KRĘGOSŁUPEM. Co więcej, jest to bardzo BEZPIECZNA forma aktywności fizycznej.'
         ])->create();
@@ -162,8 +162,8 @@ class DatabaseSeeder extends Seeder
             'category_id' => $cat_6->id,
             'user_id' => $trainer_1->id,
             'date' => Carbon::now()->format('Y-m-d'),
-            'from_time' => '13:00',
-            'to_time' => '11:00',
+            'from_time' => '14:00',
+            'to_time' => '16:00',
             'name' => 'Treningi - sporty walki/ trening siłowy.',
             'description' => 'Desc'
         ])->create();
